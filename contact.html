@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoltEdge - Contact</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@700;800&display=swap"
+        rel="stylesheet"> -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contact-map.css">
+    <style>
+        .contact-grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+        }
+
+        @media (max-width: 900px) {
+            .contact-grid-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .office-hour-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            gap: 1rem;
+        }
+
+        .dept-card {
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: var(--transition);
+        }
+
+        @media (max-width: 600px) {
+            .office-hour-row {
+                flex-direction: column;
+                justify-content: flex-start;
+                gap: 2px;
+                margin-bottom: 12px;
+            }
+
+            .dept-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            #contact-form-card {
+                padding: 1.5rem !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loader">
+        <div class="circuit-loader">
+            <div class="circuit-center"></div>
+            <div class="circuit-ring"></div>
+            <div class="circuit-ring"></div>
+        </div>
+        <div class="loader-text">Initializing...</div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">VoltEdge<span style="color:var(--secondary)">.</span></a>
+            <ul class="nav-links">
+                <li class="nav-item"><span class="nav-link">Home ▾</span>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html" class="dropdown-item">Home 1</a></li>
+                        <li><a href="index2.html" class="dropdown-item">Home 2</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                <li class="nav-item">
+                    <span class="nav-link">Dashboard ▾</span>
+                    <ul class="dropdown-menu">
+                        <li><a href="user-dashboard.html" class="dropdown-item">User Dashboard</a></li>
+                        <li><a href="admin-dashboard.html" class="dropdown-item">Admin Dashboard</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="login.html" class="btn btn-primary"
+                        style="padding: 8px 20px; color: white;">Login</a></li>
+            </ul>
+            <div class="nav-controls"><button id="theme-btn" class="btn-icon">🌙</button><button id="rtl-btn"
+                    class="btn-icon">🌐</button></div>
+        </div>
+    </nav>
+
+    <!-- Domio-Inspired "Capsule" Contact Layout -->
+    <div class="capsule-hero">
+
+        <!-- Top Half: Visuals & Hotspots -->
+        <div class="capsule-visual-container">
+            <img src="Assets/geo_structure.png" class="capsule-main-img" alt="Energy Structure">
+
+            <!-- Floating Hotspots -->
+            <div class="hotspot" style="top: 30%; left: 30%;">
+                <div class="hotspot-inner"></div>
+            </div>
+            <div class="hotspot" style="top: 40%; right: 25%;">
+                <div class="hotspot-inner"></div>
+            </div>
+            <div class="hotspot" style="bottom: 30%; left: 20%;">
+                <div class="hotspot-inner"></div>
+            </div>
+        </div>
+
+        <!-- Bottom Half: Curved Content Area -->
+        <div class="capsule-content">
+            <div class="container">
+
+                <!-- Floating Header Layout -->
+                <div class="capsule-header">
+                    <div class="capsule-title-group">
+                        <span class="capsule-subtitle">Modular Solutions</span>
+                        <h1 class="capsule-title">Live Smarter with <br>Smart Energy</h1>
+                        <p style="margin-top: 1rem; max-width: 400px;">
+                            Our adaptive infrastructure optimizes every watt with modular layouts and intelligent
+                            storage.
+                        </p>
+                    </div>
+
+                    <a href="mailto:hello@voltedge.com" class="capsule-cta">
+                        Contact Support
+                        <div class="capsule-cta-icon">↗</div>
+                    </a>
+                </div>
+
+                <!-- Contact Grid -->
+                <div class="capsule-grid">
+                    <div class="capsule-card animate-up">
+                        <div class="icon-box">📍</div>
+                        <h3>Visit HQ</h3>
+                        <p>123 High Voltage Ln, NY<br>Open 9am - 6pm</p>
+                    </div>
+
+                    <div class="capsule-card animate-up delay-100">
+                        <div class="icon-box">📞</div>
+                        <h3>Call Us</h3>
+                        <p>+1 (555) 123-4567<br>24/7 Support Line</p>
+                    </div>
+
+                    <div class="capsule-card animate-up delay-200">
+                        <div class="icon-box">✉️</div>
+                        <h3>Email</h3>
+                        <p>hello@voltedge.com<br>Response < 24h</p>
+                    </div>
+                </div>
+
+                <!-- Expanded Contact Content (New Sections) -->
+                <div style="margin-top: 8rem; border-top: 1px solid var(--glass-border); padding-top: 4rem;">
+
+                    <!-- Global Offices Detail -->
+                    <h2 class="animate-up" style="margin-bottom: 3rem; text-align: center;">Global Hubs</h2>
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 3rem; margin-bottom: 6rem;">
+                        <!-- Office 1 -->
+                        <div class="animate-up">
+                            <h3 style="margin-bottom: 1rem; color: var(--primary);">New York (HQ)</h3>
+                            <p style="color: var(--text-muted); line-height: 1.8;">
+                                123 High Voltage Lane, Midtown<br>
+                                New York, NY 10012<br>
+                                USA
+                            </p>
+                            <div style="margin-top: 1rem; font-size: 0.9rem;">
+                                <div class="office-hour-row">
+                                    <span>Mon-Fri:</span> <span>9:00 AM - 6:00 PM EST</span>
+                                </div>
+                                <div class="office-hour-row"><span>Sat-Sun:</span>
+                                    <span>Emergency Only</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Office 2 -->
+                        <div class="animate-up delay-100">
+                            <h3 style="margin-bottom: 1rem; color: var(--secondary);">London</h3>
+                            <p style="color: var(--text-muted); line-height: 1.8;">
+                                45 Power Plant Way, Greenwich<br>
+                                London, SE10 9JF<br>
+                                UK
+                            </p>
+                            <div style="margin-top: 1rem; font-size: 0.9rem;">
+                                <div class="office-hour-row">
+                                    <span>Mon-Fri:</span> <span>9:00 AM - 5:30 PM GMT</span>
+                                </div>
+                                <div class="office-hour-row"><span>Weekend:</span>
+                                    <span>Closed</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Office 3 -->
+                        <div class="animate-up delay-200">
+                            <h3 style="margin-bottom: 1rem; color: var(--accent);">Singapore</h3>
+                            <p style="color: var(--text-muted); line-height: 1.8;">
+                                88 Marina Bay, Tower 3<br>
+                                Singapore, 018981<br>
+                                SG
+                            </p>
+                            <div style="margin-top: 1rem; font-size: 0.9rem;">
+                                <div class="office-hour-row">
+                                    <span>Mon-Fri:</span> <span>10:00 AM - 7:00 PM SGT</span>
+                                </div>
+                                <div class="office-hour-row"><span>Weekend:</span> <span>By
+                                        Appt.</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Department Directory & Form -->
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr)); gap: 4rem; align-items: start;">
+
+                        <!-- Directory -->
+                        <div class="animate-up">
+                            <h2 style="margin-bottom: 2rem;">Departments</h2>
+                            <div style="display: grid; gap: 1.5rem;">
+                                <div class="glass-card dept-card">
+                                    <div>
+                                        <h4 style="margin: 0;">Sales & Partnerships</h4>
+                                        <p style="margin: 0; font-size: 0.9rem; color: var(--text-muted);">For new
+                                            business inquiries</p>
+                                    </div>
+                                    <a href="mailto:sales@voltedge.com"
+                                        style="color: var(--primary); text-decoration: none; font-weight: 600;">sales@voltedge.com
+                                        ↗</a>
+                                </div>
+                                <div class="glass-card dept-card">
+                                    <div>
+                                        <h4 style="margin: 0;">Technical Support</h4>
+                                        <p style="margin: 0; font-size: 0.9rem; color: var(--text-muted);">Existing
+                                            client help</p>
+                                    </div>
+                                    <a href="mailto:support@voltedge.com"
+                                        style="color: var(--secondary); text-decoration: none; font-weight: 600;">support@voltedge.com
+                                        ↗</a>
+                                </div>
+                                <div class="glass-card dept-card">
+                                    <div>
+                                        <h4 style="margin: 0;">Press & Media</h4>
+                                        <p style="margin: 0; font-size: 0.9rem; color: var(--text-muted);">Brand assets
+                                            and interviews</p>
+                                    </div>
+                                    <a href="mailto:media@voltedge.com"
+                                        style="color: var(--accent); text-decoration: none; font-weight: 600;">media@voltedge.com
+                                        ↗</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Main Contact Form -->
+                        <div class="glass-card animate-up delay-100" id="contact-form-card" style="padding: 2.5rem;">
+                            <h3 style="margin-bottom: 1.5rem;">Send a Message</h3>
+                            <form>
+                                <div style="margin-bottom: 1.5rem;">
+                                    <label
+                                        style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; font-weight: 600;">Full
+                                        Name</label>
+                                    <input type="text" placeholder="John Doe"
+                                        style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--glass-border); background: var(--bg-body); color: var(--text-main);">
+                                </div>
+                                <div style="margin-bottom: 1.5rem;">
+                                    <label
+                                        style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; font-weight: 600;">Email
+                                        Address</label>
+                                    <input type="email" placeholder="john@example.com"
+                                        style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--glass-border); background: var(--bg-body); color: var(--text-main);">
+                                </div>
+                                <div style="margin-bottom: 1.5rem;">
+                                    <label
+                                        style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; font-weight: 600;">Subject</label>
+                                    <select
+                                        style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--glass-border); background: var(--bg-body); color: var(--text-main);">
+                                        <option>General Inquiry</option>
+                                        <option>Request Quote</option>
+                                        <option>Report Outage</option>
+                                        <option>Partner With Us</option>
+                                    </select>
+                                </div>
+                                <div style="margin-bottom: 2rem;">
+                                    <label
+                                        style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; font-weight: 600;">Message</label>
+                                    <textarea rows="4" placeholder="How can we help?"
+                                        style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--glass-border); background: var(--bg-body); color: var(--text-main); font-family: inherit;"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact FAQ -->
+                <div
+                    style="margin-top: 6rem; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    <h2 style="margin-bottom: 2rem;">Common Questions</h2>
+                    <details class="modern-faq">
+                        <summary>How do I report a power outage? <span class="loading-icon">+</span></summary>
+                        <p>Please call our 24/7 emergency line immediately or use the "Report Outage" option in the form
+                            above for the fastest response.</p>
+                    </details>
+                    <details class="modern-faq">
+                        <summary>What areas do you service? <span class="loading-icon">+</span></summary>
+                        <p>We currently service the entire East Coast of the US, London Greater Area, and Singapore
+                            Central District.</p>
+                    </details>
+                    <details class="modern-faq">
+                        <summary>Do you offer emergency services on holidays? <span class="loading-icon">+</span>
+                        </summary>
+                        <p>Yes, our emergency teams are on standby 365 days a year, including all major holidays, to
+                            ensure your safety.</p>
+                    </details>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Support Promise Section -->
+    <div
+        style="margin-top: 6rem; background: var(--glass-bg); padding: 3rem; border-radius: 16px; border: 1px solid var(--glass-border);">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto 3rem auto;">
+            <h2 style="margin-bottom: 1rem;">The PathMakers Promise</h2>
+            <p style="color: var(--text-muted);">We don't just fix wires; we build relationships based on trust, safety,
+                and reliability.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+            <div style="text-align: center;">
+                <div
+                    style="width: 60px; height: 60px; background: rgba(108, 92, 231, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; color: var(--primary); font-size: 1.5rem;">
+                    ⏱️</div>
+                <h4 style="margin-bottom: 0.5rem;">Rapid Response</h4>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">We guarantee a 60-minute response time for all
+                    emergency industrial inquiries.</p>
+            </div>
+            <div style="text-align: center;">
+                <div
+                    style="width: 60px; height: 60px; background: rgba(0, 206, 201, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; color: var(--secondary); font-size: 1.5rem;">
+                    🛡️</div>
+                <h4 style="margin-bottom: 0.5rem;">Certified Safety</h4>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Every technician is ISO 45001 certified and
+                    trained in advanced safety protocols.</p>
+            </div>
+            <div style="text-align: center;">
+                <div
+                    style="width: 60px; height: 60px; background: rgba(253, 121, 168, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; color: var(--accent); font-size: 1.5rem;">
+                    🤝</div>
+                <h4 style="margin-bottom: 0.5rem;">Transparent Pricing</h4>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">No hidden fees. We provide detailed, itemized
+                    quotes before any work begins.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Partnership CTA -->
+    <div
+        style="margin-top: 4rem; display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: space-between; background: linear-gradient(135deg, var(--bg-card) 0%, rgba(108, 92, 231, 0.05) 100%); padding: 3rem; border-radius: 16px; border: 1px solid var(--glass-border);">
+        <div style="flex: 1; min-width: 300px;">
+            <h2 style="margin-bottom: 1rem;">Partner With Us</h2>
+            <p style="color: var(--text-muted); margin-bottom: 0;">Are you a supplier, contractor, or developer? Let's
+                build the future specifically tailored to your infrastructure needs.</p>
+        </div>
+        <div>
+            <a href="#" class="btn btn-primary" style="padding: 12px 30px;">Become a Partner</a>
+        </div>
+    </div>
+
+    <!-- Interactive Map Section -->
+    <section class="interactive-map-section">
+        <div class="map-container" id="mapContainer">
+            <div class="map-content" id="mapContent">
+                <img src="Assets/map_normal_street.png" alt="New York Street Map" class="map-image">
+                <div class="map-pin">
+                    <div class="pin-head">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <div class="pin-pulse"></div>
+                    <div class="pin-tooltip">
+                        <strong>VoltEdge HQ</strong><br>New York, NY
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-controls">
+                <button class="zoom-btn" id="zoomIn" title="Zoom In">+</button>
+                <div class="zoom-divider"></div>
+                <button class="zoom-btn" id="zoomOut" title="Zoom Out">-</button>
+            </div>
+
+            <div class="map-overlay-info">
+                <h3>Global Operations Center</h3>
+                <p>123 High Voltage Ln, NY 10012</p>
+                <a href="#" class="btn-xs">Get Directions</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-brand-col">
+                    <a href="index.html" class="logo">VOLTEDGE<span style="color:var(--secondary)">.</span></a>
+                    <p>Energizing the world, one circuit at a time. We are committed to providing sustainable and safe
+                        electrical solutions for everyone.</p>
+                    <div class="footer-socials">
+                        <a href="#">FB</a>
+                        <a href="#">TW</a>
+                        <a href="#">IG</a>
+                        <a href="#">LN</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="career.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Residential Wiring</a></li>
+                        <li><a href="#">Commercial Grids</a></li>
+                        <li><a href="#">Emergency Repair</a></li>
+                        <li><a href="#">Solar Installation</a></li>
+                        <li><a href="#">EV Charging</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>123 High Voltage Lane</li>
+                        <li>New York, NY 10012</li>
+                        <li>+1 (555) 123-4567</li>
+                        <li>support@voltedge.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 PathMakers. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of
+                        Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="rtltoggle.js"></script>
+    <script src="main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mapContainer = document.getElementById('mapContainer');
+            const mapContent = document.getElementById('mapContent');
+            const zoomInBtn = document.getElementById('zoomIn');
+            const zoomOutBtn = document.getElementById('zoomOut');
+
+            if (!mapContainer || !mapContent) return;
+
+            let scale = 1;
+            const SCALE_STEP = 0.5;
+            const MAX_SCALE = 4;
+            const MIN_SCALE = 1;
+
+            let isDragging = false;
+            let startX, startY;
+            let currentX = 0, currentY = 0;
+
+            // Zoom Functionality
+            function updateTransform() {
+                // Limit panning boundaries based on scale
+                const maxTranslateX = (mapContent.offsetWidth * scale - mapContainer.offsetWidth) / 2;
+                const maxTranslateY = (mapContent.offsetHeight * scale - mapContainer.offsetHeight) / 2;
+
+                if (scale === 1) {
+                    currentX = 0;
+                    currentY = 0;
+                } else {
+                    // Clamp translation
+                    currentX = Math.min(Math.max(currentX, -maxTranslateX), maxTranslateX);
+                    currentY = Math.min(Math.max(currentY, -maxTranslateY), maxTranslateY);
+                }
+
+                mapContent.style.transform = `translate(${currentX}px, ${currentY}px) scale(${scale})`;
+            }
+
+            zoomInBtn.addEventListener('click', () => {
+                if (scale < MAX_SCALE) {
+                    scale += SCALE_STEP;
+                    updateTransform();
+                }
+            });
+
+            zoomOutBtn.addEventListener('click', () => {
+                if (scale > MIN_SCALE) {
+                    scale -= SCALE_STEP;
+                    if (scale < MIN_SCALE) scale = MIN_SCALE;
+                    updateTransform();
+                }
+            });
+
+            // Drag/Pan Functionality
+            mapContainer.addEventListener('mousedown', (e) => {
+                if (scale <= 1) return; // Only pan when zoomed in
+                isDragging = true;
+                startX = e.clientX - currentX;
+                startY = e.clientY - currentY;
+                mapContainer.style.cursor = 'grabbing';
+            });
+
+            window.addEventListener('mouseup', () => {
+                isDragging = false;
+                mapContainer.style.cursor = 'grab';
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+                currentX = e.clientX - startX;
+                currentY = e.clientY - startY;
+                updateTransform(); // This handles clamping
+                mapContent.style.transform = `translate(${currentX}px, ${currentY}px) scale(${scale})`;
+            });
+
+            // Mouse Wheel Zoom
+            mapContainer.addEventListener('wheel', (e) => {
+                if (e.ctrlKey || scale > 1) {
+
+                    if (e.deltaY < 0 && scale < MAX_SCALE) {
+                        e.preventDefault();
+                        scale += 0.2;
+                        if (scale > MAX_SCALE) scale = MAX_SCALE;
+                        updateTransform();
+                    } else if (e.deltaY > 0 && scale > MIN_SCALE) {
+                        e.preventDefault();
+                        scale -= 0.2;
+                        if (scale < MIN_SCALE) scale = MIN_SCALE;
+                        updateTransform();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

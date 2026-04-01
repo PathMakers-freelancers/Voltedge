@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoltEdge - User Dashboard</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+    <!-- <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@700;800&display=swap"
+        rel="stylesheet"> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="dashboard-body">
+    <div id="loader">
+        <div class="circuit-loader">
+            <div class="circuit-center"></div>
+            <div class="circuit-ring"></div>
+            <div class="circuit-ring"></div>
+        </div>
+        <div class="loader-text">Initializing System...</div>
+    </div>
+
+    <div class="dash-container">
+        <aside class="dash-sidebar">
+            <a href="index.html" class="dash-logo">
+                <i class="fas fa-bolt"></i>
+                <span class="logo-text">VoltEdge</span><span style="color:var(--secondary)">.</span>
+            </a>
+            <div
+                style="margin: 0.5rem 1rem 2rem; padding: 0.4rem; background: rgba(108, 92, 231, 0.1); border-radius: 6px; border: 1px solid rgba(108, 92, 231, 0.2); color: var(--primary); font-size: 0.7rem; font-weight: 700; text-align: center; letter-spacing: 1px; text-transform: uppercase;">
+                User Access
+            </div>
+
+            <ul class="dash-nav">
+                <li>
+                    <a href="#overview" class="dash-link active">
+                        <div class="dash-link-icon"><i class="fas fa-home"></i></div>
+                        <span>Overview</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#usage" class="dash-link">
+                        <div class="dash-link-icon"><i class="fas fa-chart-line"></i></div>
+                        <span>Energy Usage</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#billing" class="dash-link">
+                        <div class="dash-link-icon"><i class="fas fa-wallet"></i></div>
+                        <span>Billing</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#devices" class="dash-link">
+                        <div class="dash-link-icon"><i class="fas fa-plug"></i></div>
+                        <span>Devices</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#environment" class="dash-link">
+                        <div class="dash-link-icon"><i class="fas fa-leaf"></i></div>
+                        <span>Eco Impact</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html" class="dash-link"
+                        style="margin-top: 2rem; border-top: 1px solid var(--dash-border); border-radius: 0;">
+                        <div class="dash-link-icon"><i class="fas fa-sign-out-alt"></i></div>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="sidebar-promo">
+                <h4>Go Premium</h4>
+                <p>Get AI-powered insights.</p>
+                <a href="#" class="promo-btn">Upgrade Now</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dash-main">
+            <!-- Header -->
+            <header class="dash-header">
+                <button id="sidebar-toggle" class="notif-btn dashboard-hamburger" title="Toggle Sidebar"
+                    style="background: transparent; border: none; box-shadow: none; font-size: 1.5rem; color: var(--dash-text);">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="dash-header-title"></div>
+
+                <div class="dash-profile">
+                    <!-- Toggles -->
+                    <button id="theme-btn" class="notif-btn" title="Toggle Theme">🌙</button>
+                    <button id="rtl-btn" class="notif-btn" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+
+                    <div style="width: 1px; height: 30px; background: var(--dash-border); margin: 0 0.5rem;"></div>
+
+                    <div class="notif-btn">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <div class="dash-user-info"
+                        style="display: flex; flex-direction: column; align-items: flex-end; margin-right: 0.5rem;">
+                        <span style="color: var(--dash-text); font-weight: 600; font-size: 0.9rem;">David Wilson</span>
+                        <span style="color: var(--dash-text-muted); font-size: 0.8rem;">Residential User</span>
+                    </div>
+                    <div
+                        style="width: 45px; height: 45px; border-radius: 50%; overflow: hidden; border: 2px solid var(--primary);">
+                        <img src="Assets/profile_david.png" alt="User" style="width: 100%; height: 100%;">
+                    </div>
+
+                    <div style="width: 1px; height: 30px; background: var(--dash-border); margin: 0 0.5rem;"></div>
+
+                    <a href="login.html" class="notif-btn" title="Logout"
+                        style="color: #ff7675; text-decoration: none; border: 1px solid rgba(255, 118, 117, 0.2); background: rgba(255, 118, 117, 0.05);">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </a>
+                </div>
+            </header>
+
+            <div class="dash-content-inner">
+                <!-- Quick Stats -->
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(108, 92, 231, 0.1); color: #6c5ce7;">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3><span class="counter-animate" data-target="350">0</span> <span
+                                style="font-size: 1rem;">kWh</span></h3>
+                        <p>Current Usage</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(0, 206, 201, 0.1); color: #00cec9;">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <h3 class="counter-animate" data-target="85.20" data-prefix="$">0</h3>
+                        <p>Bill Estimate</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(253, 121, 168, 0.1); color: #fd79a8;">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 class="counter-animate" data-target="15" data-prefix="-" data-suffix="%">0%</h3>
+                        <p>Carbon Footprint</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(255, 118, 117, 0.1); color: #ff7675;">
+                            <i class="fas fa-wifi"></i>
+                        </div>
+                        <h3 class="counter-animate" data-target="8">0</h3>
+                        <p>Active Devices</p>
+                    </div>
+                </div>
+
+                <!-- 20 Interactive Charts Grid -->
+                <!-- 1-4 Overview -->
+                <section id="overview" style="margin-bottom: 2rem;">
+                    <h3 style="color: var(--dash-text); margin-bottom: 1rem;">Overview Metrics</h3>
+                    <div class="dash-chart-grid">
+                        <div class="chart-container-modern">
+                            <div class="chart-header">
+                                <h4>Real-Time Consumption</h4>
+                            </div>
+                            <canvas id="c1"></canvas> <!-- Line -->
+                        </div>
+                        <div class="chart-container-modern">
+                            <div class="chart-header">
+                                <h4>Weekly Spending</h4>
+                            </div>
+                            <canvas id="c2"></canvas> <!-- Bar -->
+                        </div>
+                        <div class="chart-container-modern">
+                            <div class="chart-header">
+                                <h4>Energy Mix</h4>
+                            </div>
+                            <canvas id="c3"></canvas> <!-- Doughnut -->
+                        </div>
+                        <div class="chart-container-modern">
+                            <div class="chart-header">
+                                <h4>Alert History</h4>
+                            </div>
+                            <canvas id="c4"></canvas> <!-- Radar -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5-8 Usage -->
+                <section id="usage" style="margin-bottom: 2rem;">
+                    <h3 style="color: var(--dash-text); margin-bottom: 1rem;">Usage Analytics</h3>
+                    <div class="dash-chart-grid">
+                        <div class="chart-container-modern">
+                            <div class="chart-header">
+                                <h4>Peak vs Off-Peak</h4>
+                            </div>
+                            <canvas id="c5"></canvas> <!-- Line -->
+                        </div>
+                        <div class="chart-container-modern">
+                            <div class="chart-header">
+                                <h4>Daily Average</h4>
+                            </div>
+                            <canvas id="c6"></canvas> <!-- Bar -->
+                        </div>
+                        <div class="chart-container-modern">
+                            <div class="chart-header">
+                                <h4>Yearly Trend</h4>
+                            </div>
+                            <canvas id="c7"></canvas> <!-- Line (Area) -->
+                        </div>
+                        <div class="chart-container-modern">
+                            <div class="chart-header">
+                                <h4>Forecast</h4>
+                            </div>
+                            <canvas id="c8"></canvas> <!-- Scatter/Line -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 9-12 Billing -->
+                <section id="billing" style="margin-bottom: 2rem;">
+                    <h3 style="color: var(--dash-text); margin-bottom: 1rem;">Cost Breakdown</h3>
+                    <div class="dash-chart-grid">
+                        <div class="chart-container-modern">
+                            <div class="chart-header">
+                                <h4>Cost Components</h4>
+                            </div>
+                            <canvas id="c9"></canvas> <!-- Pie -->
+                        </div>
+                        <div class="chart-container-modern">
+                            <div class="chart-header">
+                                <h4>Savings Realized</h4>
+                            </div>
+                            <canvas id="c10"></canvas> <!-- Bar -->
+                        </div>
+                        <div class="chart-container-modern">
+                            <div class="chart-header">
+                                <h4>Tariff Rates</h4>
+                            </div>
+                            <canvas id="c11"></canvas> <!-- Line -->
+                        </div>
+                        <div class="chart-container-modern">
+                            <div class="chart-header">
+                                <h4>Payment History</h4>
+                            </div>
+                            <canvas id="c12"></canvas> <!-- Bar -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 13-16 Devices -->
+                <section id="devices" style="margin-bottom: 2rem;">
+                    <h3 style="color: var(--dash-text); margin-bottom: 1rem;">Smart Devices</h3>
+                    <div class="dash-chart-grid">
+                        <div class="chart-container-modern">
+                            <div class="chart-header">
+                                <h4>Device Load</h4>
+                            </div>
+                            <canvas id="c13"></canvas> <!-- Polar Area -->
+                        </div>
+                        <div class="chart-container-modern">
+                            <div class="chart-header">
+                                <h4>HVAC Efficiency</h4>
+                            </div>
+                            <canvas id="c14"></canvas> <!-- Line -->
+                        </div>
+                        <div class="chart-container-modern">
+                            <div class="chart-header">
+                                <h4>EV Charging</h4>
+                            </div>
+                            <canvas id="c15"></canvas> <!-- Bar -->
+                        </div>
+                        <div class="chart-container-modern">
+                            <div class="chart-header">
+                                <h4>Always On</h4>
+                            </div>
+                            <canvas id="c16"></canvas> <!-- Doughnut -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 17-20 Environment -->
+                <section id="environment" style="margin-bottom: 2rem;">
+                    <h3 style="color: var(--dash-text); margin-bottom: 1rem;">Eco Impact</h3>
+                    <div class="dash-chart-grid">
+                        <div class="chart-container-modern">
+                            <div class="chart-header">
+                                <h4>CO2 Offset</h4>
+                            </div>
+                            <canvas id="c17"></canvas> <!-- Bar -->
+                        </div>
+                        <div class="chart-container-modern">
+                            <div class="chart-header">
+                                <h4>Tree Equivalent</h4>
+                            </div>
+                            <canvas id="c18"></canvas> <!-- Line -->
+                        </div>
+                        <div class="chart-container-modern">
+                            <div class="chart-header">
+                                <h4>Community Rank</h4>
+                            </div>
+                            <canvas id="c19"></canvas> <!-- Radar -->
+                        </div>
+                        <div class="chart-container-modern">
+                            <div class="chart-header">
+                                <h4>Solar Contribution</h4>
+                            </div>
+                            <canvas id="c20"></canvas> <!-- Pie -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="rtltoggle.js"></script>
+    <script src="main.js"></script>
+    <script>
+        // Init Charts
+        const colors = ['#6c5ce7', '#00cec9', '#fd79a8', '#ffeaa7', '#00b894', '#fab1a0', '#74b9ff', '#a29bfe'];
+
+        // Helper to update charts on theme change
+        function updateChartsTheme() {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            const textColor = isDark ? '#e0e0e0' : '#2d3436';
+            const gridColor = isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)';
+
+            Chart.helpers.each(Chart.instances, function (instance) {
+                // Update Legend Labels
+                if (instance.options.plugins && instance.options.plugins.legend) {
+                    instance.options.plugins.legend.labels.color = textColor;
+                }
+
+                // Update Scales (Cartesian)
+                ['x', 'y'].forEach(axis => {
+                    if (instance.options.scales[axis]) {
+                        // Update Grid Colors if grid exists
+                        if (instance.options.scales[axis].grid) {
+                            instance.options.scales[axis].grid.color = gridColor;
+                            instance.options.scales[axis].grid.tickColor = gridColor;
+                        }
+                        // Update Ticks Colors
+                        if (instance.options.scales[axis].ticks) {
+                            instance.options.scales[axis].ticks.color = textColor;
+                            instance.options.scales[axis].ticks.textStrokeColor = 'transparent'; // Clean look
+                        }
+                        // Update Title if exists
+                        if (instance.options.scales[axis].title) {
+                            instance.options.scales[axis].title.color = textColor;
+                        }
+                    }
+                });
+
+                // Update Radial Scale (Radar/Polar) - usually 'r'
+                if (instance.options.scales.r) {
+                    if (instance.options.scales.r.grid) {
+                        instance.options.scales.r.grid.color = gridColor;
+                    }
+                    if (instance.options.scales.r.ticks) {
+                        instance.options.scales.r.ticks.color = textColor;
+                        instance.options.scales.r.ticks.backdropColor = 'transparent'; // Clean backdrop
+                    }
+                    if (instance.options.scales.r.pointLabels) {
+                        instance.options.scales.r.pointLabels.color = textColor;
+                    }
+                }
+
+                instance.update();
+            });
+        }
+
+        // Observer for theme changes
+        const observer = new MutationObserver(function (mutations) {
+            mutations.forEach(function (mutation) {
+                if (mutation.attributeName === "data-theme") {
+                    updateChartsTheme();
+                }
+            });
+        });
+        observer.observe(document.documentElement, { attributes: true });
+
+        const chartConfigs = [
+            { type: 'line', labels: ['00:00', '06:00', '12:00', '18:00'], data: [2, 5, 8, 6] }, // c1
+            { type: 'bar', labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'], data: [12, 19, 15, 20, 25, 18, 10] }, // c2
+            { type: 'doughnut', labels: ['Grid', 'Solar', 'Wind'], data: [50, 30, 20] }, // c3
+            { type: 'radar', labels: ['Overload', 'Outage', 'Spike', 'Dip', 'Noise'], data: [2, 1, 5, 3, 4] }, // c4
+            { type: 'line', labels: ['Jan', 'Feb', 'Mar', 'Apr'], data: [300, 280, 320, 310] }, // c5
+            { type: 'bar', labels: ['Peak', 'Off-Peak'], data: [4, 12] }, // c6
+            { type: 'line', labels: ['2023', '2024', '2025'], data: [4500, 4200, 4000], fill: true }, // c7
+            { type: 'line', labels: ['W1', 'W2', 'W3', 'W4'], data: [50, 55, 52, 58], borderDash: [5, 5] }, // c8
+            { type: 'pie', labels: ['Supply', 'Delivery', 'Tax'], data: [60, 30, 10] }, // c9
+            { type: 'bar', labels: ['Jan', 'Feb', 'Mar'], data: [15, 22, 18] }, // c10
+            { type: 'line', labels: ['Day', 'Night'], data: [0.15, 0.08] }, // c11
+            { type: 'bar', labels: ['Paid', 'Pending'], data: [100, 0] }, // c12
+            { type: 'polarArea', labels: ['AC', 'Light', 'Fridge', 'TV'], data: [40, 20, 30, 10] }, // c13
+            { type: 'line', labels: ['1h', '2h', '3h'], data: [90, 85, 92] }, // c14
+            { type: 'bar', labels: ['Mon', 'Wed', 'Fri'], data: [20, 25, 18] }, // c15
+            { type: 'doughnut', labels: ['Always On', 'Active'], data: [15, 85] }, // c16
+            { type: 'bar', labels: ['Q1', 'Q2', 'Q3'], data: [120, 150, 180] }, // c17
+            { type: 'line', labels: ['Jan', 'Feb', 'Mar'], data: [2, 5, 8] }, // c18
+            { type: 'radar', labels: ['Eff', 'Gen', 'Save'], data: [80, 60, 90] }, // c19
+            { type: 'pie', labels: ['Direct', 'Battery', 'Grid'], data: [40, 20, 40] }  // c20
+        ];
+
+        // Global Loop
+        chartConfigs.forEach((cfg, index) => {
+            const ctx = document.getElementById(`c${index + 1}`);
+            if (ctx) {
+                new Chart(ctx, {
+                    type: cfg.type,
+                    data: {
+                        labels: cfg.labels,
+                        datasets: [{
+                            label: 'Data',
+                            data: cfg.data,
+                            backgroundColor: cfg.type.includes('line') ? 'rgba(108, 92, 231, 0.2)' : colors,
+                            borderColor: '#6c5ce7',
+                            borderWidth: 1,
+                            fill: cfg.fill || false,
+                            borderDash: cfg.borderDash || []
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: cfg.type !== 'line' && cfg.type !== 'bar', position: 'right' } },
+                        scales: {
+                            x: { display: !['pie', 'doughnut', 'polarArea', 'radar'].includes(cfg.type), grid: { display: false } },
+                            y: { display: !['pie', 'doughnut', 'polarArea', 'radar'].includes(cfg.type), grid: { color: 'rgba(255,255,255,0.05)' } }
+                        }
+                    }
+                });
+            }
+        });
+
+        // Trigger initial update
+        setTimeout(updateChartsTheme, 500);
+
+        // --- Scroll Spy Implementation ---
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.dash-nav .dash-link');
+
+        const observerSpy = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    const activeLink = document.querySelector(`.dash-nav .dash-link[href="#${id}"]`);
+                    if (activeLink) activeLink.classList.add('active');
+                }
+            });
+        }, { threshold: 0.2, rootMargin: "-10% 0px -50% 0px" });
+
+        sections.forEach(section => observerSpy.observe(section));
+
+        // Click Handler
+        navLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

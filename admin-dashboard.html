@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoltEdge - Admin Command</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+    <!-- <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@700;800&display=swap"
+        rel="stylesheet"> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="dashboard-body">
+    <div id="loader">
+        <div class="circuit-loader">
+            <div class="circuit-center"></div>
+            <div class="circuit-ring"></div>
+            <div class="circuit-ring"></div>
+        </div>
+        <div class="loader-text">Loading Core Systems...</div>
+    </div>
+
+    <div class="dash-container">
+        <aside class="dash-sidebar">
+            <a href="index.html" class="dash-logo">
+                <i class="fas fa-bolt"></i>
+                <span class="logo-text">VoltEdge</span><span style="color:var(--secondary)">.</span>
+            </a>
+            <div
+                style="margin: 0.5rem 1rem 2rem; padding: 0.4rem; background: rgba(255,100,100,0.1); border-radius: 6px; border: 1px solid rgba(255,100,100,0.2); color: #ff6b81; font-size: 0.7rem; font-weight: 700; text-align: center; letter-spacing: 1px; text-transform: uppercase;">
+                Admin Access
+            </div>
+
+            <ul class="dash-nav">
+                <li>
+                    <a href="#grid-ops" class="dash-link active">
+                        <div class="dash-link-icon"><i class="fas fa-network-wired"></i></div>
+                        <span>Grid Network</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#financials" class="dash-link">
+                        <div class="dash-link-icon"><i class="fas fa-coins"></i></div>
+                        <span>Financials</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#users" class="dash-link">
+                        <div class="dash-link-icon"><i class="fas fa-users"></i></div>
+                        <span>User Base</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#security" class="dash-link">
+                        <div class="dash-link-icon"><i class="fas fa-shield-alt"></i></div>
+                        <span>Security</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html" class="dash-link"
+                        style="margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); border-radius: 0;">
+                        <div class="dash-link-icon"><i class="fas fa-sign-out-alt"></i></div>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dash-main">
+            <!-- Header -->
+            <header class="dash-header">
+                <button id="sidebar-toggle" class="notif-btn dashboard-hamburger" title="Toggle Sidebar"
+                    style="background: transparent; border: none; box-shadow: none; font-size: 1.5rem; color: var(--dash-text);">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="dash-header-title"></div>
+
+                <div class="dash-profile">
+                    <!-- Toggles -->
+                    <button id="theme-btn" class="notif-btn" title="Toggle Theme">🌙</button>
+                    <button id="rtl-btn" class="notif-btn" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+
+                    <div style="width: 1px; height: 30px; background: var(--dash-border); margin: 0 0.5rem;"></div>
+
+                    <div class="notif-btn" style="position: relative;">
+                        <i class="fas fa-bell"></i>
+                        <span
+                            style="position: absolute; top: 0; right: 0; width: 10px; height: 10px; background: red; border-radius: 50%;"></span>
+                    </div>
+                    <div class="notif-btn">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <div class="dash-user-info"
+                        style="display: flex; flex-direction: column; align-items: flex-end; margin-right: 0.5rem;">
+                        <span style="color: var(--dash-text); font-weight: 600; font-size: 0.9rem;">Dr. A. Vance</span>
+                        <span style="color: var(--dash-text-muted); font-size: 0.8rem;">Chief Engineer</span>
+                    </div>
+                    <div
+                        style="width: 45px; height: 45px; border-radius: 50%; overflow: hidden; border: 2px solid var(--secondary);">
+                        <img src="Assets/profile_elena.png" alt="Admin" style="width: 100%; height: 100%;">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Quick Stats -->
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(255, 255, 255, 0.05); color: #fff;">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3><span class="counter-animate" data-target="50.00">0</span> <span
+                            style="font-size: 1rem;">Hz</span>
+                    </h3>
+                    <p>Frequency (Stable)</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(255, 118, 117, 0.1); color: #ff7675;">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3 class="counter-animate" data-target="2">0</h3>
+                    <p>Active Alerts</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(108, 92, 231, 0.1); color: #6c5ce7;">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3><span class="counter-animate" data-target="9.8">0</span> <span
+                            style="font-size: 1rem;">GW</span>
+                    </h3>
+                    <p>Total Load</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(0, 206, 201, 0.1); color: #00cec9;">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3 class="counter-animate" data-target="99.99" data-suffix="%">0%</h3>
+                    <p>Uptime</p>
+                </div>
+            </div>
+
+            <!-- 20 Interactive Charts Grid -->
+            <!-- 1-4 Grid Ops -->
+            <section id="grid-ops" style="margin-bottom: 2rem;">
+                <h3 style="color: var(--dash-text); margin-bottom: 1rem;">Network Status</h3>
+                <div class="dash-chart-grid">
+                    <div class="chart-container-modern">
+                        <div class="chart-header">
+                            <h4>Regional Load Distribution</h4>
+                        </div>
+                        <canvas id="a1"></canvas> <!-- Line -->
+                    </div>
+                    <div class="chart-container-modern">
+                        <div class="chart-header">
+                            <h4>Frequency Stability</h4>
+                        </div>
+                        <canvas id="a2"></canvas> <!-- Line -->
+                    </div>
+                    <div class="chart-container-modern">
+                        <div class="chart-header">
+                            <h4>Energy Mix</h4>
+                        </div>
+                        <canvas id="a3"></canvas> <!-- Doughnut -->
+                    </div>
+                    <div class="chart-container-modern">
+                        <div class="chart-header">
+                            <h4>Substation Status</h4>
+                        </div>
+                        <canvas id="a4"></canvas> <!-- Radar -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5-8 Financials -->
+            <section id="financials" style="margin-bottom: 2rem;">
+                <h3 style="color: var(--dash-text); margin-bottom: 1rem;">Financial Performance</h3>
+                <div class="dash-chart-grid">
+                    <div class="chart-container-modern">
+                        <div class="chart-header">
+                            <h4>Quarterly Revenue</h4>
+                        </div>
+                        <canvas id="a5"></canvas> <!-- Bar -->
+                    </div>
+                    <div class="chart-container-modern">
+                        <div class="chart-header">
+                            <h4>Margin Analysis</h4>
+                        </div>
+                        <canvas id="a6"></canvas> <!-- Line -->
+                    </div>
+                    <div class="chart-container-modern">
+                        <div class="chart-header">
+                            <h4>OpEx vs CapEx</h4>
+                        </div>
+                        <canvas id="a7"></canvas> <!-- Pie -->
+                    </div>
+                    <div class="chart-container-modern">
+                        <div class="chart-header">
+                            <h4>Arrears Aging</h4>
+                        </div>
+                        <canvas id="a8"></canvas> <!-- Bar -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- 9-12 User Stats -->
+            <section id="users" style="margin-bottom: 2rem;">
+                <h3 style="color: var(--dash-text); margin-bottom: 1rem;">User Demographics</h3>
+                <div class="dash-chart-grid">
+                    <div class="chart-container-modern">
+                        <div class="chart-header">
+                            <h4>New Registrations</h4>
+                        </div>
+                        <canvas id="a9"></canvas> <!-- Line -->
+                    </div>
+                    <div class="chart-container-modern">
+                        <div class="chart-header">
+                            <h4>User Type Distribution</h4>
+                        </div>
+                        <canvas id="a10"></canvas> <!-- Doughnut -->
+                    </div>
+                    <div class="chart-container-modern">
+                        <div class="chart-header">
+                            <h4>Churn Rate</h4>
+                        </div>
+                        <canvas id="a11"></canvas> <!-- Line -->
+                    </div>
+                    <div class="chart-container-modern">
+                        <div class="chart-header">
+                            <h4>Ticket Volume</h4>
+                        </div>
+                        <canvas id="a12"></canvas> <!-- Bar -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- 13-16 Maintenance -->
+            <section id="maintenance" style="margin-bottom: 2rem;">
+                <h3 style="color: var(--dash-text); margin-bottom: 1rem;">Infrastructure Health</h3>
+                <div class="dash-chart-grid">
+                    <div class="chart-container-modern">
+                        <div class="chart-header">
+                            <h4>Asset Health Index</h4>
+                        </div>
+                        <canvas id="a13"></canvas> <!-- Radar -->
+                    </div>
+                    <div class="chart-container-modern">
+                        <div class="chart-header">
+                            <h4>Preventive Maintenance</h4>
+                        </div>
+                        <canvas id="a14"></canvas> <!-- Bar -->
+                    </div>
+                    <div class="chart-container-modern">
+                        <div class="chart-header">
+                            <h4>Fleet Availability</h4>
+                        </div>
+                        <canvas id="a15"></canvas> <!-- Pie -->
+                    </div>
+                    <div class="chart-container-modern">
+                        <div class="chart-header">
+                            <h4>Inventory Consumption</h4>
+                        </div>
+                        <canvas id="a16"></canvas> <!-- Line -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- 17-20 Security -->
+            <section id="security" style="margin-bottom: 2rem;">
+                <h3 style="color: var(--dash-text); margin-bottom: 1rem;">Security & Compliance</h3>
+                <div class="dash-chart-grid">
+                    <div class="chart-container-modern">
+                        <div class="chart-header">
+                            <h4>Access Violations</h4>
+                        </div>
+                        <canvas id="a17"></canvas> <!-- Bar -->
+                    </div>
+                    <div class="chart-container-modern">
+                        <div class="chart-header">
+                            <h4>Threat Map Activity</h4>
+                        </div>
+                        <canvas id="a18"></canvas> <!-- Bubble/Scatter -->
+                    </div>
+                    <div class="chart-container-modern">
+                        <div class="chart-header">
+                            <h4>Compliance Score</h4>
+                        </div>
+                        <canvas id="a19"></canvas> <!-- Doughnut -->
+                    </div>
+                    <div class="chart-container-modern">
+                        <div class="chart-header">
+                            <h4>System Updates</h4>
+                        </div>
+                        <canvas id="a20"></canvas> <!-- Line -->
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="rtltoggle.js"></script>
+    <script src="main.js"></script>
+    <script>
+        // Init Charts
+        const colors = ['#6c5ce7', '#00cec9', '#fd79a8', '#ffeaa7', '#00b894', '#fab1a0', '#74b9ff', '#a29bfe'];
+
+        // Helper to update charts on theme change
+        function updateChartsTheme() {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            const textColor = isDark ? '#e0e0e0' : '#2d3436';
+            const gridColor = isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)';
+
+            Chart.helpers.each(Chart.instances, function (instance) {
+                // Update Legend Labels
+                if (instance.options.plugins && instance.options.plugins.legend) {
+                    instance.options.plugins.legend.labels.color = textColor;
+                }
+
+                // Update Scales (Cartesian)
+                ['x', 'y'].forEach(axis => {
+                    if (instance.options.scales[axis]) {
+                        // Update Grid Colors if grid exists
+                        if (instance.options.scales[axis].grid) {
+                            instance.options.scales[axis].grid.color = gridColor;
+                            instance.options.scales[axis].grid.tickColor = gridColor;
+                        }
+                        // Update Ticks Colors
+                        if (instance.options.scales[axis].ticks) {
+                            instance.options.scales[axis].ticks.color = textColor;
+                            instance.options.scales[axis].ticks.textStrokeColor = 'transparent'; // Clean look
+                        }
+                        // Update Title if exists
+                        if (instance.options.scales[axis].title) {
+                            instance.options.scales[axis].title.color = textColor;
+                        }
+                    }
+                });
+
+                // Update Radial Scale (Radar/Polar) - usually 'r'
+                if (instance.options.scales.r) {
+                    if (instance.options.scales.r.grid) {
+                        instance.options.scales.r.grid.color = gridColor;
+                    }
+                    if (instance.options.scales.r.ticks) {
+                        instance.options.scales.r.ticks.color = textColor;
+                        instance.options.scales.r.ticks.backdropColor = 'transparent'; // Clean backdrop
+                    }
+                    if (instance.options.scales.r.pointLabels) {
+                        instance.options.scales.r.pointLabels.color = textColor;
+                    }
+                }
+
+                instance.update();
+            });
+        }
+
+        // Observer for theme changes
+        const observer = new MutationObserver(function (mutations) {
+            mutations.forEach(function (mutation) {
+                if (mutation.attributeName === "data-theme") {
+                    updateChartsTheme();
+                }
+            });
+        });
+        observer.observe(document.documentElement, { attributes: true });
+
+        const chartConfigs = [
+            { type: 'line', labels: ['00:00', '06:00', '12:00', '18:00'], data: [35, 42, 48, 40] }, // a1
+            { type: 'line', labels: ['1s', '2s', '3s', '4s'], data: [50.01, 49.99, 50.00, 50.02] }, // a2
+            { type: 'doughnut', labels: ['Nuclear', 'Solar', 'Wind'], data: [40, 25, 35] }, // a3
+            { type: 'radar', labels: ['Load', 'Temp', 'Volt', 'Curr', 'Vib'], data: [80, 60, 90, 70, 50] }, // a4
+            { type: 'bar', labels: ['Q1', 'Q2', 'Q3', 'Q4'], data: [5, 6, 7, 8] }, // a5
+            { type: 'line', labels: ['Jan', 'Feb', 'Mar'], data: [12, 13, 14] }, // a6
+            { type: 'pie', labels: ['OpEx', 'CapEx'], data: [65, 35] }, // a7
+            { type: 'bar', labels: ['30d', '60d', '90d'], data: [200, 50, 10] }, // a8
+            { type: 'line', labels: ['W1', 'W2', 'W3', 'W4'], data: [50, 80, 60, 120] }, // a9
+            { type: 'doughnut', labels: ['Res', 'Ind', 'Com'], data: [70, 10, 20] }, // a10
+            { type: 'line', labels: ['Jan', 'Feb', 'Mar'], data: [2.1, 1.8, 1.5] }, // a11
+            { type: 'bar', labels: ['Tech', 'Bill', 'Gen'], data: [1500, 4000, 1000] }, // a12
+            { type: 'radar', labels: ['Trans', 'Line', 'Sub', 'Meter'], data: [90, 85, 95, 88] }, // a13
+            { type: 'bar', labels: ['Open', 'Closed'], data: [30, 200] }, // a14
+            { type: 'pie', labels: ['Active', 'Service'], data: [90, 10] }, // a15
+            { type: 'line', labels: ['Jan', 'Feb'], data: [5000, 4800] }, // a16
+            { type: 'bar', labels: ['M', 'T', 'W', 'T', 'F'], data: [10, 25, 5, 8, 12] }, // a17
+            { type: 'scatter', labels: ['X', 'Y'], data: [{ x: 10, y: 20 }, { x: 15, y: 10 }] }, // a18 (Using scatter mock)
+            { type: 'doughnut', labels: ['Pass', 'Fail'], data: [98, 2] }, // a19
+            { type: 'line', labels: ['v1.1', 'v1.2', 'v2.0'], data: [90, 95, 100] }  // a20
+        ];
+
+        // Global Loop
+        chartConfigs.forEach((cfg, index) => {
+            const ctx = document.getElementById(`a${index + 1}`);
+            if (ctx) {
+                new Chart(ctx, {
+                    type: cfg.type,
+                    data: {
+                        labels: cfg.labels,
+                        datasets: [{
+                            label: 'Metrics',
+                            data: cfg.data,
+                            backgroundColor: cfg.type.includes('line') ? 'rgba(0, 206, 201, 0.2)' : colors,
+                            borderColor: '#00cec9',
+                            borderWidth: 1,
+                            fill: cfg.fill || false,
+                            borderDash: cfg.borderDash || []
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: cfg.type !== 'line' && cfg.type !== 'bar', position: 'right' } },
+                        scales: {
+                            x: { display: !['pie', 'doughnut', 'polarArea', 'radar'].includes(cfg.type), grid: { display: false } },
+                            y: { display: !['pie', 'doughnut', 'polarArea', 'radar'].includes(cfg.type), grid: { color: 'rgba(255,255,255,0.05)' } }
+                        }
+                    }
+                });
+            }
+        });
+
+        // Trigger initial update
+        setTimeout(updateChartsTheme, 500);
+
+        // --- Scroll Spy Implementation ---
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.dash-nav .dash-link');
+
+        const observerSpy = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    const activeLink = document.querySelector(`.dash-nav .dash-link[href="#${id}"]`);
+                    if (activeLink) activeLink.classList.add('active');
+                }
+            });
+        }, { threshold: 0.2, rootMargin: "-10% 0px -50% 0px" });
+
+        sections.forEach(section => observerSpy.observe(section));
+
+        // Click Handler
+        navLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

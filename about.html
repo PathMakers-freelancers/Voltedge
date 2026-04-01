@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoltEdge - About Us | Engineering Without Compromise</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+    <!-- <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap"
+        rel="stylesheet"> -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Global About Section Texture */
+        .section-about {
+            position: relative;
+            background-color: var(--bg-dark);
+            /* Fallback */
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                radial-gradient(circle at 50% 50%, rgba(25, 25, 35, 0.5) 0%, rgba(10, 15, 26, 0.8) 100%);
+            background-size: 30px 30px, 30px 30px, 100% 100%;
+            background-position: center;
+        }
+
+        /* Ensure content sits above texture */
+        .section-about>* {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* About Page Modern Styles */
+        .about-wrapper {
+            overflow-x: hidden;
+        }
+
+        /* Hero About - Premium Design */
+        .about-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 140px 0 100px;
+            background: linear-gradient(135deg, #0a0f1a 0%, #111827 40%, #1a1f2e 70%, #0a0f1a 100%);
+            overflow: hidden;
+        }
+
+        /* Animated Gradient Orbs */
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, transparent 70%);
+            top: -200px;
+            left: -200px;
+            animation: floatOrb 15s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .about-hero::after {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 70%);
+            bottom: -150px;
+            right: -150px;
+            animation: floatOrb 12s ease-in-out infinite reverse;
+            pointer-events: none;
+        }
+
+        @keyframes floatOrb {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            25% {
+                transform: translate(50px, -30px) scale(1.1);
+            }
+
+            50% {
+                transform: translate(20px, 20px) scale(0.95);
+            }
+
+            75% {
+                transform: translate(-30px, 10px) scale(1.05);
+            }
+        }
+
+        /* Grid Pattern Overlay */
+        .hero-grid-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+        }
+
+        .hero-content-grid {
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-hero-content {
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 8px 16px;
+            background: rgba(59, 130, 246, 0.15);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(59, 130, 246, 0.4);
+            }
+        }
+
+        .about-hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .about-hero h1 .text-gradient {
+            background: linear-gradient(135deg, #fff 0%, #e2e8f0 50%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-hero h1 .text-accent {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-hero p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.85);
+            /* Fixed visibility on dark background */
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .btn-hero {
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-hero-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-hero-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(59, 130, 246, 0.5);
+        }
+
+        .btn-hero-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-hero-outline:hover {
+            border-color: var(--primary);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        /* Floating Metrics */
+        .hero-metrics {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .metric-pill {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+        }
+
+        .metric-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        .metric-dot.green {
+            background: #22c55e;
+        }
+
+        .metric-dot.blue {
+            background: #3b82f6;
+        }
+
+        .metric-dot.purple {
+            background: #8b5cf6;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+        }
+
+        .metric-pill span {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .metric-pill strong {
+            color: white;
+        }
+
+        /* Hero Visual Side */
+        .hero-visual-container {
+            position: relative;
+        }
+
+        .hero-main-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 2rem;
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-main-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        }
+
+        .hero-image {
+            width: 100%;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .hero-stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 1.25rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .hero-stat-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .hero-stat-card h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.25rem;
+        }
+
+        .hero-stat-card span {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Floating Elements */
+        .floating-badge {
+            position: absolute;
+            background: rgba(17, 24, 39, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            backdrop-filter: blur(20px);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            animation: float 6s ease-in-out infinite;
+            color: #ffffff;
+        }
+
+        .floating-badge.top-right {
+            top: -20px;
+            right: -20px;
+            animation-delay: 0s;
+        }
+
+        .floating-badge.bottom-left {
+            bottom: -20px;
+            left: -20px;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .floating-badge-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .floating-badge-text h5 {
+            font-size: 1rem;
+            margin: 0 0 2px 0;
+            color: #ffffff;
+        }
+
+        .floating-badge-text span {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Stats Bar - Removed, using new layout */
+        .stats-bar {
+            display: none;
+        }
+
+        /* Section Modern */
+        .section-about {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-about.dark-bg {
+            background: var(--bg-dark);
+        }
+
+        .section-about.card-bg {
+            background: var(--bg-card);
+        }
+
+        .section-header-about {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header-about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header-about p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        /* Core Principles Grid */
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .principle-card {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .principle-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .principle-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .principle-card:hover::before {
+            opacity: 1;
+        }
+
+        .principle-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.15));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .principle-card h4 {
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+        }
+
+        .principle-card p {
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* Methodology Section */
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .methodology-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .methodology-content p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .method-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .method-item {
+            display: flex;
+            gap: 1.25rem;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+        }
+
+        .method-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .method-text h5 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .method-text p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Timeline Section */
+        .timeline-modern {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline-modern::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary), var(--secondary), var(--accent));
+        }
+
+        .timeline-item-modern {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 4rem;
+            position: relative;
+            margin-bottom: 3rem;
+            width: 50%;
+        }
+
+        .timeline-item-modern::before {
+            content: '';
+            position: absolute;
+            top: calc(1.5rem + 7px);
+            right: 0;
+            width: 4rem;
+            height: 2px;
+            background: var(--primary);
+            z-index: 0;
+            opacity: 0.5;
+        }
+
+        .timeline-item-modern:nth-child(even) {
+            justify-content: flex-start;
+            padding-left: 4rem;
+            padding-right: 0;
+            margin-left: 50%;
+        }
+
+        .timeline-item-modern:nth-child(even)::before {
+            left: 0;
+            right: auto;
+        }
+
+        .timeline-dot-modern {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: var(--primary);
+            border-radius: 50%;
+            right: -8px;
+            top: 1.5rem;
+            border: 3px solid var(--bg-dark);
+        }
+
+        .timeline-item-modern:nth-child(even) .timeline-dot-modern {
+            left: -8px;
+            right: auto;
+        }
+
+        .timeline-card {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            max-width: 400px;
+        }
+
+        .timeline-year {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-card h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .timeline-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Expertise Distribution */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .expertise-card {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .expertise-card:hover {
+            border-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .expertise-percent {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .expertise-card h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .expertise-bar {
+            display: none; /* Removed the progress bar line as per design fix */
+        }
+
+        .expertise-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        /* Leadership Grid */
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .leader-card {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .leader-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .leader-avatar {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            font-weight: 700;
+        }
+
+        .leader-info {
+            padding: 1.5rem;
+        }
+
+        .leader-info h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .leader-role {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        .leader-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* CTA About */
+        .cta-about {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, #1a1f2e 100%);
+            text-align: center;
+            position: relative;
+        }
+
+        .cta-about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-about-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff; /* Force white for contrast on dark bg */
+        }
+
+        .cta-about p {
+            color: rgba(255, 255, 255, 0.75); /* Light text for readability on dark bg */
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-about {
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary-about {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+        }
+
+        .btn-primary-about:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-visual-container {
+                order: -1;
+            }
+
+            .floating-badge.top-right {
+                top: 10px;
+                right: 10px;
+            }
+
+            .floating-badge.bottom-left {
+                bottom: 10px;
+                left: 10px;
+            }
+
+            .principles-grid,
+            .leadership-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .methodology-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .expertise-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .timeline-modern::before {
+                left: 20px;
+            }
+
+            .timeline-item-modern,
+            .timeline-item-modern:nth-child(even) {
+                width: 100%;
+                margin-left: 0;
+                padding-left: 4rem;
+                padding-right: 0;
+                justify-content: flex-start;
+            }
+
+            .timeline-dot-modern,
+            .timeline-item-modern:nth-child(even) .timeline-dot-modern {
+                left: 12px;
+                right: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-cta-group {
+                flex-direction: column;
+            }
+
+            .hero-metrics {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero-stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .floating-badge {
+                display: none;
+            }
+
+            .principles-grid,
+            .leadership-grid,
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-bar {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header-about h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loader">
+        <div class="circuit-loader">
+            <div class="circuit-center"></div>
+            <div class="circuit-ring"></div>
+            <div class="circuit-ring"></div>
+        </div>
+        <div class="loader-text">Initializing...</div>
+    </div>
+
+    <div class="about-wrapper">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="container nav-container">
+                <a href="index.html" class="logo">VoltEdge<span style="color:var(--secondary)">.</span></a>
+                <ul class="nav-links">
+                    <li class="nav-item"><span class="nav-link">Home ▾</span>
+                        <ul class="dropdown-menu">
+                            <li><a href="index.html" class="dropdown-item">Home 1</a></li>
+                            <li><a href="index2.html" class="dropdown-item">Home 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li class="nav-item">
+                        <span class="nav-link">Dashboard ▾</span>
+                        <ul class="dropdown-menu">
+                            <li><a href="user-dashboard.html" class="dropdown-item">User Dashboard</a></li>
+                            <li><a href="admin-dashboard.html" class="dropdown-item">Admin Dashboard</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="login.html" class="btn btn-primary"
+                            style="padding: 8px 20px; color: white;">Login</a></li>
+                </ul>
+                <div class="nav-controls">
+                    <button id="theme-btn" class="btn-icon">🌙</button>
+                    <button id="rtl-btn" class="btn-icon">🌐</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section - Premium -->
+        <section class="about-hero">
+            <div class="hero-grid-pattern"></div>
+            <div class="container">
+                <div class="hero-content-grid side-by-side-grid mobile-reverse">
+                    <!-- Left Content -->
+                    <div class="about-hero-content">
+                        <div class="hero-badge">
+                            <span>⚡</span>
+                            <span>Since 2012 • Trusted by 500+ Organizations</span>
+                        </div>
+
+                        <h1>
+                            <span class="text-gradient">Engineering</span><br>
+                            <span class="text-accent">Without Compromise.</span>
+                        </h1>
+
+                        <p>VoltEdge began with a singular focus: the elimination of failure in critical electrical
+                            infrastructure. Today, we operate as a technical engineering partner for industrial leaders
+                            and
+                            national utility operators worldwide.</p>
+
+                        <div class="hero-cta-group">
+                            <a href="contact.html" class="btn-hero btn-hero-primary">
+                                Consult Our Engineers →
+                            </a>
+                            <a href="services.html" class="btn-hero btn-hero-outline">
+                                View Capabilities
+                            </a>
+                        </div>
+
+                        <div class="hero-metrics">
+                            <div class="metric-pill">
+                                <div class="metric-dot green"></div>
+                                <span>All Systems <strong>Operational</strong></span>
+                            </div>
+                            <div class="metric-pill">
+                                <div class="metric-dot blue"></div>
+                                <span><strong class="counter-animate" data-target="99.99" data-suffix="%">0%</strong>
+                                    Uptime</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Visual -->
+                    <div class="hero-visual-container">
+                        <div class="hero-main-card">
+                            <img src="Assets/volt_case_datacenter.png" alt="Control Room Operations" class="hero-image">
+
+                            <div class="hero-stats-grid">
+                                <div class="hero-stat-card">
+                                    <h3 class="counter-animate" data-target="99.99" data-suffix="%">0%</h3>
+                                    <span>Grid Stability Index</span>
+                                </div>
+                                <div class="hero-stat-card">
+                                    <h3 class="counter-animate" data-target="50" data-prefix="<" data-suffix="ms">0ms
+                                    </h3>
+                                    <span>Response Time</span>
+                                </div>
+                                <div class="hero-stat-card">
+                                    <h3 class="counter-animate" data-target="500" data-suffix="+">0</h3>
+                                    <span>Active Nodes</span>
+                                </div>
+                                <div class="hero-stat-card">
+                                    <h3 class="counter-animate" data-target="47">0</h3>
+                                    <span>Countries Served</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Badges -->
+                        <div class="floating-badge top-right">
+                            <div class="floating-badge-icon">🛡️</div>
+                            <div class="floating-badge-text">
+                                <h5>ISO 27001</h5>
+                                <span>Certified Security</span>
+                            </div>
+                        </div>
+
+                        <div class="floating-badge bottom-left">
+                            <div class="floating-badge-icon">⚡</div>
+                            <div class="floating-badge-text">
+                                <h5>Zero Downtime</h5>
+                                <span>Since 2019</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Engineering Principles -->
+        <section class="section-about dark-bg">
+            <div class="container">
+                <div class="section-header-about">
+                    <h2>Core Engineering Principles</h2>
+                    <p>The foundational values that guide every deployment and decision</p>
+                </div>
+
+                <div class="principles-grid">
+                    <div class="principle-card">
+                        <div class="principle-icon">🎯</div>
+                        <h4>Precision First</h4>
+                        <p>Every connection, every line of code, and every deployment is reviewed against a zero-error
+                            protocol. We accept nothing less than perfection in critical infrastructure.</p>
+                    </div>
+                    <div class="principle-card">
+                        <div class="principle-icon">🛡️</div>
+                        <h4>Redundant Safety</h4>
+                        <p>We build systems with multi-layered backups to ensure mission-critical infrastructure never
+                            goes dark. N+2 redundancy is our minimum standard.</p>
+                    </div>
+                    <div class="principle-card">
+                        <div class="principle-icon">🌱</div>
+                        <h4>Future Sustainable</h4>
+                        <p>Integrating renewable source management with traditional distribution systems for long-term
+                            viability and environmental responsibility.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Methodology Section -->
+        <section class="section-about card-bg">
+            <div class="container">
+                <div class="methodology-grid">
+                    <div class="methodology-content">
+                        <h2>Grit. Precision. Oversight.</h2>
+                        <p>Our methodology is rooted in the "Zero-Thermal-Failure" principle. Every deployment, from a
+                            simple commercial hub to a regional facility, follows a rigorous 14-point technical review
+                            before it goes live.</p>
+
+                        <div class="method-list">
+                            <div class="method-item">
+                                <div class="method-icon">🔬</div>
+                                <div class="method-text">
+                                    <h5>Digital Twin Modeling</h5>
+                                    <p>We simulate load stress patterns in a digital environment before any physical
+                                        implementation begins.</p>
+                                </div>
+                            </div>
+                            <div class="method-item">
+                                <div class="method-icon">📡</div>
+                                <div class="method-text">
+                                    <h5>Remote Monitoring</h5>
+                                    <p>24/7 technical oversight from our centralized operations facility with
+                                        millisecond response times.</p>
+                                </div>
+                            </div>
+                            <div class="method-item">
+                                <div class="method-icon">🤖</div>
+                                <div class="method-text">
+                                    <h5>AI Predictive Analytics</h5>
+                                    <p>Machine learning models predict equipment failures 2-4 weeks in advance with 94%
+                                        accuracy.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="position: relative;">
+                        <img src="Assets/volt_analytics.png" alt="Control Room"
+                            style="border-radius: 24px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+                        <div
+                            style="position: absolute; bottom: -20px; left: -20px; background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 12px; padding: 1.25rem 1.5rem; backdrop-filter: blur(10px);">
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div
+                                    style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">
+                                    ⚡</div>
+                                <div>
+                                    <h5 style="margin: 0; font-size: 1.25rem;">14-Point</h5>
+                                    <span style="color: var(--text-muted); font-size: 0.85rem;">Technical Review</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Critical Timeline -->
+        <section class="section-about dark-bg">
+            <div class="container">
+                <div class="section-header-about">
+                    <h2>Mission Critical Timeline</h2>
+                    <p>A history of technical milestones and unyielding reliability</p>
+                </div>
+
+                <div class="timeline-modern">
+                    <div class="timeline-item-modern">
+                        <div class="timeline-dot-modern"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-year">2012</div>
+                            <h4>The Genesis</h4>
+                            <p>VoltEdge founded as a specialized consulting firm for high-voltage industrial facilities
+                                in Industrial Sector 4.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item-modern">
+                        <div class="timeline-dot-modern"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-year">2016</div>
+                            <h4>Infrastructure Expansion</h4>
+                            <p>Expansion into national grid management and industrial high-voltage distribution
+                                systems across 8 countries.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item-modern">
+                        <div class="timeline-dot-modern"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-year">2018</div>
+                            <h4>Global Deployment</h4>
+                            <p>Opened regional hubs in 4 continents, establishing our Global Deployment Protocol for
+                                international infrastructure.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item-modern">
+                        <div class="timeline-dot-modern"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-year">2021</div>
+                            <h4>AI Integration</h4>
+                            <p>Launched first-generation AI Predictive Engine, reducing unplanned downtime by 78%
+                                across managed grids.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item-modern">
+                        <div class="timeline-dot-modern"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-year">2024</div>
+                            <h4>The AI Frontier</h4>
+                            <p>Launched second-generation AI Predictive Reliability Engine, now managing over 500+
+                                national infrastructure nodes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expertise Distribution -->
+        <section class="section-about card-bg">
+            <div class="container">
+                <div class="section-header-about">
+                    <h2>Reliability Expertise Distribution</h2>
+                    <p>Our workforce is divided into specialized tactical units for elite engineering oversight</p>
+                </div>
+
+                <div class="expertise-grid">
+                    <div class="expertise-card">
+                        <div class="expertise-percent counter-animate" data-target="35" data-suffix="%">0%</div>
+                        <h4>System Design</h4>
+                        <div class="expertise-bar">
+                            <div class="expertise-fill" style="width: 35%;"></div>
+                        </div>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-percent counter-animate" data-target="28" data-suffix="%">0%</div>
+                        <h4>Field Engineering</h4>
+                        <div class="expertise-bar">
+                            <div class="expertise-fill" style="width: 28%;"></div>
+                        </div>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-percent counter-animate" data-target="22" data-suffix="%">0%</div>
+                        <h4>Digital Systems</h4>
+                        <div class="expertise-bar">
+                            <div class="expertise-fill" style="width: 22%;"></div>
+                        </div>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-percent counter-animate" data-target="15" data-suffix="%">0%</div>
+                        <h4>R&D Future Lab</h4>
+                        <div class="expertise-bar">
+                            <div class="expertise-fill" style="width: 15%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Executive Engineering Council -->
+        <section class="section-about dark-bg">
+            <div class="container">
+                <div class="section-header-about">
+                    <h2>Executive Engineering Council</h2>
+                    <p>Industry veterans leading the future of infrastructure reliability</p>
+                </div>
+
+                <div class="leadership-grid">
+                    <div class="leader-card">
+                        <div class="leader-avatar"><img src="Assets/profile_marcus_vane.png" alt="Dr. Marcus Vane"
+                                style="width: 100%; height: 100%; object-fit: cover; object-position: top;"></div>
+                        <div class="leader-info">
+                            <h4>Dr. Marcus Vane</h4>
+                            <p class="leader-role">Founder & Chief Reliability Architect</p>
+                            <p>Former lead engineer at National Grid Ops, holding 14 patents in superconducting power
+                                nodes and thermal management systems.</p>
+                        </div>
+                    </div>
+                    <div class="leader-card">
+                        <div class="leader-avatar"><img src="Assets/profile_elena_ross.png" alt="Elena Ross"
+                                style="width: 100%; height: 100%; object-fit: cover; object-position: top;"></div>
+                        <div class="leader-info">
+                            <h4>Elena Ross</h4>
+                            <p class="leader-role">Head of System Reliability</p>
+                            <p>Expert in fault-tolerant computing and large-scale industrial automation. ISO 45001
+                                certified protocol specialist.</p>
+                        </div>
+                    </div>
+                    <div class="leader-card">
+                        <div class="leader-avatar"><img src="Assets/profile_samuel_chen.png" alt="Samuel Chen"
+                                style="width: 100%; height: 100%; object-fit: cover; object-position: top;"></div>
+                        <div class="leader-info">
+                            <h4>Samuel Chen</h4>
+                            <p class="leader-role">Global Operations Director</p>
+                            <p>Specializes in international infrastructure logistics and rapid deployment coordination
+                                across 47 countries.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-about">
+            <div class="cta-about-content">
+                <h2>Build the Future of Infrastructure.</h2>
+                <p>Join our engineering council or consult on critical deployments. We are at the forefront of power
+                    reliability innovation.</p>
+                <a href="contact.html" class="btn-about btn-primary-about">
+                    Consult Chief Engineer →
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <!-- Advisory Board (Expanding Team) -->
+        <section class="section" style="background: var(--bg-body);">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 3rem;">Engineering Advisory Board</h2>
+                <p style="text-align: center; max-width: 700px; margin: 0 auto 4rem; color: var(--text-muted);">
+                    Guided by industry veterans and academic leaders from top institutions.
+                </p>
+                <div class="leadership-grid">
+                    <div class="leader-card animate-up">
+                        <div class="leader-avatar"><img src="Assets/profile_elena_rigby.png" alt="Dr. Elena Rigby"
+                                style="width: 100%; height: 100%; object-fit: cover; object-position: top;"></div>
+                        <div class="leader-info">
+                            <h4>Dr. Elena Rigby</h4>
+                            <div class="leader-role">Chief Scientist</div>
+                            <p>PhD in Quantum Grid Dynamics from MIT. Formerly lead researcher at CERN Energy Lab.</p>
+                        </div>
+                    </div>
+                    <div class="leader-card animate-up delay-100">
+                        <div class="leader-avatar"><img src="Assets/profile_marcus_kane.png" alt="Marcus Kane"
+                                style="width: 100%; height: 100%; object-fit: cover; object-position: top;"></div>
+                        <div class="leader-info">
+                            <h4>Marcus Kane</h4>
+                            <div class="leader-role">Director of Compliance</div>
+                            <p>25 years ensuring regulatory standards across EU and North American power grids.</p>
+                        </div>
+                    </div>
+                    <div class="leader-card animate-up delay-200">
+                        <div class="leader-avatar"><img src="Assets/profile_sarah_jenkins.png" alt="Sarah Jenkins"
+                                style="width: 100%; height: 100%; object-fit: cover; object-position: top;"></div>
+                        <div class="leader-info">
+                            <h4>Sarah Jenkins</h4>
+                            <div class="leader-role">Sustainability Lead</div>
+                            <p>Architect of the "Green 2030" initiative, pushing carbon-neutral industrial designs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Sustainability Report -->
+        <section class="section" style="background: var(--bg-card);">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+                    <div class="animate-up">
+                        <span class="badge"
+                            style="background: rgba(46, 213, 115, 0.15); color: #2ed573; padding: 5px 15px; border-radius: 50px; font-weight: bold; margin-bottom: 1rem; display: inline-block;">ECO-IMPACT
+                            2025</span>
+                        <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Powering a Greener Tomorrow</h2>
+                        <p style="color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.8;">
+                            We believe electrical engineering is the frontline of the climate battle. By optimizing grid
+                            efficiency and integrating renewables, we've helped our clients reduce their carbon
+                            footprint significantly.
+                        </p>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+                            <div>
+                                <h3 class="counter-animate" data-target="45" data-suffix="K"
+                                    style="font-size: 2.5rem; color: #2ed573; margin-bottom: 0.5rem;">0K</h3>
+                                <p style="font-size: 0.9rem; color: var(--text-muted);">Tons of CO2 Offset</p>
+                            </div>
+                            <div>
+                                <h3 class="counter-animate" data-target="12" data-suffix="M"
+                                    style="font-size: 2.5rem; color: #2ed573; margin-bottom: 0.5rem;">0M</h3>
+                                <p style="font-size: 0.9rem; color: var(--text-muted);">kWh Saved Annually</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-card animate-up delay-100" style="padding: 2rem;">
+                        <h4 style="margin-bottom: 1.5rem;">Energy Mix Transition</h4>
+                        <div style="margin-bottom: 1.5rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>Solar & Wind</span>
+                                <span>65%</span>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.1); height: 8px; border-radius: 4px;">
+                                <div style="background: #2ed573; width: 65%; height: 100%; border-radius: 4px;"></div>
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>Hydro</span>
+                                <span>20%</span>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.1); height: 8px; border-radius: 4px;">
+                                <div style="background: #3742fa; width: 20%; height: 100%; border-radius: 4px;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>Traditional</span>
+                                <span>15%</span>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.1); height: 8px; border-radius: 4px;">
+                                <div style="background: #ffa502; width: 15%; height: 100%; border-radius: 4px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Global Operations Map Placeholder -->
+        <section class="section" style="padding: 6rem 0;">
+            <div class="container" style="text-align: center;">
+                <h2 style="margin-bottom: 3rem;">Global Operations</h2>
+                <div style="position: relative; max-width: 900px; margin: 0 auto;">
+                    <img src="Assets/map_city_stylized.png" style="width: 100%; opacity: 0.3; filter: invert(1);"
+                        alt="World Map">
+
+                    <!-- Map Dots -->
+                    <div class="map-dot"
+                        style="position: absolute; top: 35%; left: 22%; width: 15px; height: 15px; background: var(--primary); border-radius: 50%; box-shadow: 0 0 15px var(--primary);">
+                    </div>
+                    <div class="map-dot"
+                        style="position: absolute; top: 30%; left: 48%; width: 15px; height: 15px; background: var(--secondary); border-radius: 50%; box-shadow: 0 0 15px var(--secondary);">
+                    </div>
+                    <div class="map-dot"
+                        style="position: absolute; top: 60%; left: 75%; width: 15px; height: 15px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 15px var(--accent);">
+                    </div>
+
+                    <div class="map-label"
+                        style="position: absolute; top: 38%; left: 20%; color: white; background: rgba(0,0,0,0.5); padding: 5px 10px; border-radius: 4px;">
+                        New York HQ</div>
+                    <div class="map-label"
+                        style="position: absolute; top: 25%; left: 46%; color: white; background: rgba(0,0,0,0.5); padding: 5px 10px; border-radius: 4px;">
+                        London Hub</div>
+                    <div class="map-label"
+                        style="position: absolute; top: 55%; left: 73%; color: white; background: rgba(0,0,0,0.5); padding: 5px 10px; border-radius: 4px;">
+                        Singapore Lab</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Awards Strip -->
+        <section class="section" style="background: linear-gradient(to right, var(--bg-card), var(--bg-body));">
+            <div class="container">
+                <div
+                    style="display: flex; gap: 2rem; justify-content: space-around; flex-wrap: wrap; text-align: center;">
+                    <div class="animate-up">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🏆</div>
+                        <h4>Innovation 2024</h4>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">Energy Tech Awards</p>
+                    </div>
+                    <div class="animate-up delay-100">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">⭐</div>
+                        <h4>Best Workplace</h4>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">Glassdoor Top 50</p>
+                    </div>
+                    <div class="animate-up delay-200">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🌿</div>
+                        <h4>Green Star</h4>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">Sustainability Index</p>
+                    </div>
+                    <div class="animate-up delay-300">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🛡️</div>
+                        <h4>Safety First</h4>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">OSHA Excellence</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Start (Reference Point) -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col footer-brand-col">
+                        <a href="index.html" class="logo">VOLTEDGE<span style="color:var(--secondary)">.</span></a>
+                        <p>Energizing the world, one circuit at a time. We are committed to providing sustainable and
+                            safe electrical solutions for everyone.</p>
+                        <div class="footer-socials">
+                            <a href="#">FB</a>
+                            <a href="#">TW</a>
+                            <a href="#">IG</a>
+                            <a href="#">LN</a>
+                        </div>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="projects.html">Projects</a></li>
+                            <li><a href="career.html">Careers</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#">Residential Wiring</a></li>
+                            <li><a href="#">Commercial Grids</a></li>
+                            <li><a href="#">Emergency Repair</a></li>
+                            <li><a href="#">Solar Installation</a></li>
+                            <li><a href="#">EV Charging</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li>123 High Voltage Lane</li>
+                            <li>New York, NY 10012</li>
+                            <li>+1 (555) 123-4567</li>
+                            <li>support@voltedge.com</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>&copy; 2026 PathMakers. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms
+                            of Service</a></p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="rtltoggle.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

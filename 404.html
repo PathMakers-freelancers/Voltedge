@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoltEdge - 404</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #050505;
+            color: white;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .error-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .error-code {
+            font-size: 15rem;
+            font-weight: 800;
+            position: relative;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+        }
+
+        /* Glitch Effect Layers */
+        .error-code::before,
+        .error-code::after {
+            content: "404";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #050505;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+
+        .error-code::before {
+            left: 2px;
+            text-shadow: -2px 0 #ff00c1;
+            animation: glitch-anim-1 2s infinite linear alternate-reverse;
+        }
+
+        .error-code::after {
+            left: -2px;
+            text-shadow: -2px 0 #00fff9;
+            animation: glitch-anim-2 3s infinite linear alternate-reverse;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #fff, #6c5ce7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #a0a0a0;
+            margin-bottom: 2rem;
+        }
+
+        /* Canvas for Lightning */
+        #shock-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        @keyframes glitch-anim-1 {
+            0% {
+                clip-path: inset(20% 0 80% 0);
+            }
+
+            20% {
+                clip-path: inset(60% 0 10% 0);
+            }
+
+            40% {
+                clip-path: inset(40% 0 50% 0);
+            }
+
+            60% {
+                clip-path: inset(80% 0 5% 0);
+            }
+
+            80% {
+                clip-path: inset(10% 0 70% 0);
+            }
+
+            100% {
+                clip-path: inset(30% 0 20% 0);
+            }
+        }
+
+        @keyframes glitch-anim-2 {
+            0% {
+                clip-path: inset(10% 0 60% 0);
+            }
+
+            20% {
+                clip-path: inset(30% 0 20% 0);
+            }
+
+            40% {
+                clip-path: inset(60% 0 40% 0);
+            }
+
+            60% {
+                clip-path: inset(10% 0 80% 0);
+            }
+
+            80% {
+                clip-path: inset(40% 0 10% 0);
+            }
+
+            100% {
+                clip-path: inset(70% 0 30% 0);
+            }
+        }
+
+        /* Screen Flash */
+        .flash-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            z-index: 20;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.05s;
+        }
+
+        .btn-glow {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-glow:hover {
+            background: var(--primary);
+            box-shadow: 0 0 30px var(--primary);
+            border-color: var(--primary);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flash-overlay" id="flash"></div>
+    <canvas id="shock-canvas"></canvas>
+
+    <div class="error-container">
+        <div class="error-code" data-text="404">404</div>
+        <h2>System Failure</h2>
+        <p>Voltage Overload Detected. Connection Severed.</p>
+        <a href="index.html" class="btn-glow">Initialize Reboot</a>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('shock-canvas');
+        const ctx = canvas.getContext('2d');
+        const flash = document.getElementById('flash');
+
+        let width, height;
+        let lightning = [];
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Bolt {
+            constructor(x, y, targetX, targetY) {
+                this.segments = [];
+                this.x = x;
+                this.y = y;
+                this.targetX = targetX;
+                this.targetY = targetY;
+                this.alpha = 1;
+                this.life = 0;
+                this.generate();
+            }
+
+            generate() {
+                let currentX = this.x;
+                let currentY = this.y;
+                let steps = 20; // Number of segments
+                let dx = (this.targetX - this.x) / steps;
+                let dy = (this.targetY - this.y) / steps;
+
+                for (let i = 0; i < steps; i++) {
+                    // Add randomness to path
+                    let sway = (Math.random() - 0.5) * 100; // Jaggedness
+                    let nextX = currentX + dx + (Math.random() - 0.5) * 20;
+                    let nextY = currentY + dy + (Math.random() - 0.5) * 20;
+
+                    // If not end, add sway
+                    if (i < steps - 1) {
+                        nextX += sway;
+                    } else {
+                        nextX = this.targetX;
+                        nextY = this.targetY;
+                    }
+
+                    this.segments.push({
+                        x1: currentX,
+                        y1: currentY,
+                        x2: nextX,
+                        y2: nextY
+                    });
+
+                    currentX = nextX;
+                    currentY = nextY;
+                }
+            }
+
+            draw() {
+                this.alpha -= 0.05; // Fade out
+                if (this.alpha <= 0) return;
+
+                ctx.strokeStyle = `rgba(130, 204, 255, ${this.alpha})`;
+                ctx.lineWidth = 3;
+                ctx.shadowBlur = 20;
+                ctx.shadowColor = "#00f0ff";
+                ctx.beginPath();
+                this.segments.forEach(seg => {
+                    ctx.moveTo(seg.x1, seg.y1);
+                    ctx.lineTo(seg.x2, seg.y2);
+                });
+                ctx.stroke();
+
+                // Draw thinner inner core
+                ctx.strokeStyle = `rgba(255, 255, 255, ${this.alpha})`;
+                ctx.lineWidth = 1;
+                ctx.shadowBlur = 0;
+                ctx.beginPath();
+                this.segments.forEach(seg => {
+                    ctx.moveTo(seg.x1, seg.y1);
+                    ctx.lineTo(seg.x2, seg.y2);
+                });
+                ctx.stroke();
+            }
+        }
+
+        function triggerLightning() {
+            const startX = Math.random() * width;
+            const startY = 0; // Start from top
+            // Target somewhere in the bottom half
+            const targetX = Math.random() * width;
+            const targetY = height; // Hit bottom
+
+            // Create multiple bolts for "forking" look
+            lightning.push(new Bolt(startX, startY, targetX, targetY));
+
+            // Randomly branch
+            if (Math.random() > 0.5) {
+                lightning.push(new Bolt(startX, startY, targetX + (Math.random() - 0.5) * 300, targetY));
+            }
+
+            // Flash screen
+            flash.style.opacity = 0.3;
+            setTimeout(() => {
+                flash.style.opacity = 0;
+            }, 100);
+
+            // Shake screen
+            document.body.style.transform = `translate(${Math.random() * 10 - 5}px, ${Math.random() * 10 - 5}px)`;
+            setTimeout(() => {
+                document.body.style.transform = 'translate(0,0)';
+            }, 50);
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+
+            // Clean up old bolts
+            lightning = lightning.filter(bolt => bolt.alpha > 0);
+
+            lightning.forEach(bolt => bolt.draw());
+
+            // Random chance to strike
+            if (Math.random() < 0.05) { // 5% chance per frame (~3 times a second)
+                triggerLightning();
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        // Initial strike
+        triggerLightning();
+
+        // Click to shock
+        window.addEventListener('click', (e) => {
+            lightning.push(new Bolt(width / 2, 0, e.clientX, e.clientY));
+            flash.style.opacity = 0.5;
+            setTimeout(() => flash.style.opacity = 0, 100);
+        });
+
+    </script>
+</body>
+
+</html>

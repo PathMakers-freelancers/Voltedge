@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoltEdge - Register</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+    <!-- <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@700;800&display=swap"
+        rel="stylesheet"> -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="auth-body-split">
+    <!-- Removed auth-overlay since we use base theme backgrounds -->
+
+    <!-- Integrate Navbar -->
+    <nav class="navbar"
+        style="position: absolute; width: 100%; top: 0; z-index: 100; background: transparent; border: none; backdrop-filter: none;">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" style="color: var(--text-heading) !important; text-shadow: none;">VoltEdge<span style="color:var(--primary)">.</span></a>
+            <div class="nav-controls" style="display: flex; gap: 0.5rem; margin-left: auto;">
+                <button id="theme-btn" class="btn-icon" style="color: var(--text-heading) !important; text-shadow: none;">🌙</button>
+                <button id="rtl-btn" class="btn-icon" style="color: var(--text-heading) !important; text-shadow: none;">⇄</button>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="split-container">
+        <!-- Left Side: Welcome -->
+        <div class="split-intro">
+            <h1>Join<br>VoltEdge</h1>
+            <p>Experience potential. Create an account today to access premium diagnostics, track repairs in real-time,
+                and manage your devices.</p>
+
+            <div class="auth-social-links">
+                <a href="#" class="auth-social-btn"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="auth-social-btn"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="auth-social-btn"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <!-- Right Side: Form -->
+        <div class="split-form-container">
+            <h2>Create Account</h2>
+            <form action="user-dashboard.html">
+                <div class="modern-input-group">
+                    <label>Full Name</label>
+                    <input type="text" class="modern-input" required placeholder="John Doe">
+                </div>
+
+                <div class="modern-input-group">
+                    <label>Email Address</label>
+                    <input type="email" class="modern-input" required placeholder="john@example.com">
+                </div>
+
+                <div class="modern-input-group">
+                    <label>Password</label>
+                    <input type="password" class="modern-input" required placeholder="Create a password">
+                </div>
+
+                <div class="modern-input-group">
+                    <label>Confirm Password</label>
+                    <input type="password" class="modern-input" required placeholder="Confirm password">
+                </div>
+
+                <button type="submit" class="auth-action-btn">Sign Up Now</button>
+            </form>
+
+            <div style="margin-top: 1rem;">
+                <a href="login.html" class="auth-footer-link" style="margin-top: 0.5rem;">Already have an
+                    account? <span style="color: var(--primary); font-weight: 700;">Sign In</span></a>
+            </div>
+
+            <p style="margin-top: 2rem; font-size: 0.75rem; color: var(--text-muted); line-height: 1.4;">
+                By clicking on "Sign Up Now" you agree to our<br>
+                <a href="#" class="auth-footer-link">Terms of Service</a> | <a href="#" class="auth-footer-link">Privacy
+                    Policy</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="rtltoggle.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoltEdge - Services</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@700;800&display=swap"
+        rel="stylesheet"> -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="loader">
+        <div class="circuit-loader">
+            <div class="circuit-center"></div>
+            <div class="circuit-ring"></div>
+            <div class="circuit-ring"></div>
+        </div>
+        <div class="loader-text">Initializing...</div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">VoltEdge<span style="color:var(--secondary)">.</span></a>
+            <ul class="nav-links">
+                <li class="nav-item"><span class="nav-link">Home ▾</span>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html" class="dropdown-item">Home 1</a></li>
+                        <li><a href="index2.html" class="dropdown-item">Home 2</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                <li class="nav-item">
+                    <span class="nav-link">Dashboard ▾</span>
+                    <ul class="dropdown-menu">
+                        <li><a href="user-dashboard.html" class="dropdown-item">User Dashboard</a></li>
+                        <li><a href="admin-dashboard.html" class="dropdown-item">Admin Dashboard</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="login.html" class="btn btn-primary"
+                        style="padding: 8px 20px; color: white;">Login</a></li>
+            </ul>
+            <div class="nav-controls"><button id="theme-btn" class="btn-icon">🌙</button><button id="rtl-btn"
+                    class="btn-icon">🌐</button></div>
+        </div>
+    </nav>
+
+    <!-- Service Showcase Section (Hero) -->
+    <header class="service-showcase">
+        <div class="showcase-bg"></div>
+        <div class="showcase-container">
+            <!-- Text Side -->
+            <div class="showcase-text">
+                <div class="showcase-brand">VoltEdge<span>.</span></div>
+                <h1 class="showcase-title">How We Made <br>Grid Power <br>Smarter</h1>
+                <p class="showcase-desc">
+                    We crafted intelligent infrastructure solutions using immersive technology to optimize efficiency.
+                    <br><br>
+                    From predictive AI maintenance to real-time grid balancing, our tools empower the modern energy
+                    landscape.
+                </p>
+            </div>
+
+            <!-- Visual Side -->
+            <div class="showcase-visuals">
+                <!-- Floating Turbine (Top Right) -->
+                <img src="Assets/floating_turbine.png" class="float-obj turbine-lens" alt="Turbine">
+
+                <!-- Posters (Center) -->
+                <div class="poster-grid">
+                    <div class="poster-card"><img src="Assets/poster_renewable.png" alt="Renewable"></div>
+                    <div class="poster-card"><img src="Assets/poster_grid.png" alt="Grid Status"></div>
+                    <div class="poster-card"><img src="Assets/poster_ai.png" alt="AI Analysis"></div>
+                </div>
+
+                <!-- Floating Meter (Bottom Right) -->
+                <img src="Assets/device_meter.png" class="float-obj device-meter" alt="Smart Meter">
+            </div>
+        </div>
+    </header>
+
+    <!-- Maintenance Plans -->
+    <section class="section" style="background: var(--bg-card);">
+        <div class="container">
+            <h2 style="text-align: center;">Maintenance Plans</h2>
+            <p style="text-align: center; max-width: 600px; margin: 0 auto 3rem;">Prevent downtime and ensure safety
+                with our subscription packages.</p>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Basic Home</h3>
+                    <div class="price-tag">$29<span style="font-size: 1rem; color: var(--text-muted);">/mo</span></div>
+                    <ul class="price-features">
+                        <li>Annual Safety Inspection</li>
+                        <li>Priority Emergency Dispatch</li>
+                        <li>15% Discount on Repairs</li>
+                        <li>Panel Maintenance</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline">Choose Basic</a>
+                </div>
+
+                <div class="pricing-card popular">
+                    <h3>Smart Home Pro</h3>
+                    <div class="price-tag">$49<span style="font-size: 1rem; color: var(--text-muted);">/mo</span></div>
+                    <ul class="price-features">
+                        <li>Bi-Annual Inspections</li>
+                        <li>Smart Device Monitoring</li>
+                        <li>Unlimited Remote Support</li>
+                        <li>Free Filters/Batteries</li>
+                        <li>EV Charger Checkup</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Choose Pro</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Small Business</h3>
+                    <div class="price-tag">$199<span style="font-size: 1rem; color: var(--text-muted);">/mo</span></div>
+                    <ul class="price-features">
+                        <li>Quarterly Maintenance</li>
+                        <li>Compliance Reporting</li>
+                        <li>After-hours Service</li>
+                        <li>Dedicated Account Manager</li>
+                        <li>Thermal Imaging Scans</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline">Choose Business</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="section">
+        <div class="container">
+            <h2 style="text-align: center;">Service Comparison</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th style="width: 40%;">Feature</th>
+                        <th style="width: 30%;">Standard Service</th>
+                        <th style="width: 30%;">VoltEdge Premium</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Response Time</td>
+                        <td>24-48 Hours</td>
+                        <td><strong>&lt; 2 Hours</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Warranty</td>
+                        <td>1 Year Labor</td>
+                        <td><strong>Lifetime Labor</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Technician Level</td>
+                        <td>Journeyman</td>
+                        <td><strong>Master Electrician</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Upfront Pricing</td>
+                        <td>Estimate</td>
+                        <td><strong>Guaranteed</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Clean Up</td>
+                        <td>Basic Broom Sweep</td>
+                        <td><strong>White Glove Clean</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Emergency Service Highlight -->
+    <section class="section"
+        style="background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('Assets/hero-bg-1.jpg'); background-size: cover; background-attachment: fixed; color: white;">
+        <div class="container" style="text-align: center;">
+            <h2 class="animate-up" style="color: white; font-size: 3rem; margin-bottom: 2rem;">When Lights Go Out, We
+                Show Up</h2>
+            <p class="animate-up delay-100"
+                style="font-size: 1.25rem; max-width: 800px; margin: 0 auto 3rem; color: rgba(255,255,255,0.9);">
+                Power failures don't stick to a 9-to-5 schedule, and neither do we. Our Rapid Response Team is deployed
+                within minutes of your call.
+            </p>
+            <div class="animate-up delay-200"
+                style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 900px; margin: 0 auto;">
+                <div
+                    style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 12px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1);">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">🕒</div>
+                    <h3 style="color: white;">
+                        <span class="counter-animate" data-target="60" data-prefix="< " data-suffix=" Mins" style="color: white;">0
+                            Mins</span>
+                    </h3>
+                    <p style="color: rgba(255,255,255,0.8);">Average arrival time</p>
+                </div>
+                <div
+                    style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 12px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1);">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">🚚</div>
+                    <h3 style="color: white;">Fully Stocked</h3>
+                    <p style="color: rgba(255,255,255,0.8);">Trucks with <span class="counter-animate"
+                            data-target="1000" data-suffix="+" style="color: white;">0</span> parts</p>
+                </div>
+                <div
+                    style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 12px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1);">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">🩺</div>
+                    <h3 style="color: white;">Diagnostic</h3>
+                    <p style="color: rgba(255,255,255,0.8);">Advanced fault finding</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Tech Stack -->
+    <section class="section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem;">Tools of the Trade</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                <div class="glass-card animate-up">
+                    <h3 style="color: var(--primary);">Thermal Cameras</h3>
+                    <p>FLIR-TG165 Imaging tools to detect invisible hotspots and loose connections before they cause
+                        fire.</p>
+                </div>
+                <div class="glass-card animate-up delay-100">
+                    <h3 style="color: var(--secondary);">Power Analyzers</h3>
+                    <p>Fluke 435 Series II to monitor power quality, harmonics, and energy loss in real-time.</p>
+                </div>
+                <div class="glass-card animate-up delay-200">
+                    <h3 style="color: var(--accent);">CAD Software</h3>
+                    <p>AutoCAD Electrical for precise planning and schematic design of complex industrial grids.</p>
+                </div>
+                <div class="glass-card animate-up delay-300">
+                    <h3 style="color: #00b894;">Smart Meters</h3>
+                    <p>IoT-enabled metering for granular energy consumption data and remote monitoring.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Service Breakdown -->
+    <section class="section" style="background: var(--bg-body);">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 4rem;">Comprehensive Solutions</h2>
+
+            <!-- Residential -->
+            <div class="service-detail-row side-by-side-grid mobile-reverse" style="margin-bottom: 6rem;">
+                <div class="animate-up">
+                    <span class="badge"
+                        style="background: rgba(108, 92, 231, 0.1); color: var(--primary); padding: 5px 15px; border-radius: 50px; font-weight: bold; margin-bottom: 1rem; display: inline-block;">RESIDENTIAL</span>
+                    <h3 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Smart Home Ecosystems</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.8;">
+                        Transform your home into an intelligent living space. We go beyond simple wiring to integrate
+                        holistic smart systems that learn your habits and save energy.
+                    </p>
+                    <ul class="feature-list" style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                            <span style="color: var(--primary);">✓</span> IoT Lighting & Climate Control
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                            <span style="color: var(--primary);">✓</span> Home Theater & Audio Wiring
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                            <span style="color: var(--primary);">✓</span> EV Charger Level 2 Installation
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                            <span style="color: var(--primary);">✓</span> Backup Gen & Solar Battery Integration
+                        </li>
+                    </ul>
+                </div>
+                <div class="glass-card animate-up delay-100" style="padding: 0; overflow: hidden; height: 400px;">
+                    <img src="Assets/smart_home.png" style="width: 100%; height: 100%; object-fit: cover;"
+                        alt="Smart Home">
+                </div>
+            </div>
+
+            <!-- Commercial -->
+            <div class="service-detail-row side-by-side-grid" style="margin-bottom: 6rem;">
+                <div class="glass-card animate-up" style="padding: 0; overflow: hidden; height: 400px;">
+                    <img src="Assets/commercial_office.png" style="width: 100%; height: 100%; object-fit: cover;"
+                        alt="Commercial Office">
+                </div>
+                <div class="animate-up delay-100">
+                    <span class="badge"
+                        style="background: rgba(0, 206, 201, 0.1); color: var(--secondary); padding: 5px 15px; border-radius: 50px; font-weight: bold; margin-bottom: 1rem; display: inline-block;">COMMERCIAL</span>
+                    <h3 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Office & Retail Infrastructure</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.8;">
+                        Reliable power is the backbone of your business. We design redundant, high-efficiency electrical
+                        layouts that minimize downtime and operational costs.
+                    </p>
+                    <ul class="feature-list" style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                            <span style="color: var(--secondary);">✓</span> Structured Cabling & Networking
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                            <span style="color: var(--secondary);">✓</span> Automated HVAC Energy Management
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                            <span style="color: var(--secondary);">✓</span> Security & Access Control Power
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                            <span style="color: var(--secondary);">✓</span> Retail Lighting Design
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Industrial -->
+            <div class="service-detail-row side-by-side-grid mobile-reverse">
+                <div class="animate-up">
+                    <span class="badge"
+                        style="background: rgba(253, 121, 168, 0.1); color: var(--accent); padding: 5px 15px; border-radius: 50px; font-weight: bold; margin-bottom: 1rem; display: inline-block;">INDUSTRIAL</span>
+                    <h3 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Heavy Grid Solutions</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.8;">
+                        High-voltage expertise for factories, plants, and data centers. We handle the heavy lifting with
+                        certified safety protocols and precision engineering.
+                    </p>
+                    <ul class="feature-list" style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                            <span style="color: var(--accent);">✓</span> 3-Phase Power Distribution
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                            <span style="color: var(--accent);">✓</span> Motor Control Centers (MCC)
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                            <span style="color: var(--accent);">✓</span> PLC Automation & Scada
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                            <span style="color: var(--accent);">✓</span> Transformer Installation & Oil Testing
+                        </li>
+                    </ul>
+                </div>
+                <div class="glass-card animate-up delay-100" style="padding: 0; overflow: hidden; height: 400px;">
+                    <img src="Assets/industrial_factory.png" style="width: 100%; height: 100%; object-fit: cover;"
+                        alt="Industrial Factory">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Case Study (Canon Style Layout) -->
+    <section class="case-study-hero">
+        <div class="cs-bg-overlay"></div>
+        <div class="container cs-container">
+
+            <!-- Top Row -->
+            <div class="cs-header">
+                <div class="cs-brand-block animate-up">
+                    <small>How We Made</small>
+                    <div class="cs-logo">VoltEdge<span style="color:#ef5777">.</span></div>
+                    <span class="cs-slogan">Empowering The Future</span>
+                    <h1>Grid Systems Look Better</h1>
+                </div>
+                <div class="cs-visual animate-up delay-100">
+                    <div class="cs-lens-ring"></div>
+                    <!-- Reusing the turbine as the "Lens" equivalent -->
+                    <img src="Assets/floating_turbine.png" alt="Turbine Visual">
+                </div>
+            </div>
+
+            <!-- Middle Content -->
+            <div class="cs-content-grid">
+                <div class="cs-text-group animate-up delay-200">
+                    <div class="cs-text-item">
+                        <h4>Built Strong Infrastructure</h4>
+                        <p>We crafted robust power grids using immersive data modeling to evoke confidence and position
+                            VoltEdge as a brand driven by reliability.</p>
+                    </div>
+                    <div class="cs-text-item">
+                        <h4>Kept Communication Data-Led</h4>
+                        <p>We ensured metrics and analytics remained the clear focal point in every design, reinforcing
+                            our performance-driven identity.</p>
+                    </div>
+                    <div class="cs-text-item">
+                        <h4>Maintained Consistent Power</h4>
+                        <p>We applied VoltEdge's signature adaptive load balancing to create a premium, cohesive, and
+                            instantly recognizable stability.</p>
+                    </div>
+                </div>
+
+                <div class="cs-summary animate-up delay-300">
+                    <p>These small but thoughtful changes make a big difference: Used cinematic, data-led visuals to
+                        position grid ops as innovative.</p>
+                    <p class="cs-summary-small">Ensured metrics stayed front and center. Unified color, typography, and
+                        layouts for a polished look.</p>
+                </div>
+            </div>
+
+            <!-- Bottom Posters -->
+            <div class="cs-poster-row">
+                <div class="cs-poster animate-up delay-400">
+                    <img src="Assets/poster_renewable.png" alt="Renewable Poster">
+                    <div class="cs-poster-content">
+                        <h4>Eco-Friendly</h4>
+                        <span style="font-size: 0.8rem; opacity: 0.8;">Sustainable Sources</span>
+                    </div>
+                </div>
+                <div class="cs-poster animate-up delay-500">
+                    <img src="Assets/poster_ai.png" alt="AI Poster">
+                    <div class="cs-poster-content">
+                        <h4>AI Monitoring</h4>
+                        <span style="font-size: 0.8rem; opacity: 0.8;">Real-time Analysis</span>
+                    </div>
+                </div>
+                <div class="cs-poster animate-up delay-600">
+                    <img src="Assets/poster_grid.png" alt="Grid Poster">
+                    <div class="cs-poster-content">
+                        <h4>Smart Grid</h4>
+                        <span style="font-size: 0.8rem; opacity: 0.8;">Efficient Distribution</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Case Studies / Projects (Existing) -->
+    <section class="section" style="background: var(--bg-card);">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 4rem;">Recent Success Stories</h2>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                <!-- Case 1 -->
+                <div class="glass-card animate-up" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                    <img src="Assets/volt_case_datacenter.png" style="width: 100%; height: 250px; object-fit: cover;"
+                        alt="Data Center">
+                    <div class="news-content" style="padding: 2rem; display: flex; flex-direction: column; flex-grow: 1;">
+                        <span style="font-size: 0.8rem; color: var(--primary); font-weight: bold;">INDUSTRIAL</span>
+                        <h4 style="font-size: 1.25rem; margin: 0.5rem 0;">Apex Data Center</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; flex-grow: 1;">
+                            Complete N+2 power redundancy overhaul for a Tier 4 facility, ensuring 100% uptime for
+                            critical servers.
+                        </p>
+                        <a href="#"
+                            style="display: block; margin-top: auto; color: var(--primary); font-weight: 600;">View Case
+                            Study &rarr;</a>
+                    </div>
+                </div>
+                <!-- Case 2 -->
+                <div class="glass-card animate-up delay-100" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                    <img src="Assets/volt_case_solar.png" style="width: 100%; height: 250px; object-fit: cover;"
+                        alt="Solar Farm">
+                    <div class="news-content" style="padding: 2rem; display: flex; flex-direction: column; flex-grow: 1;">
+                        <span style="font-size: 0.8rem; color: var(--secondary); font-weight: bold;">RENEWABLE</span>
+                        <h4 style="font-size: 1.25rem; margin: 0.5rem 0;">Nevada Solar Array</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; flex-grow: 1;">
+                            Installation of a 5MW solar field with integrated battery storage for a municipal grid
+                            offset.
+                        </p>
+                        <a href="#"
+                            style="display: block; margin-top: auto; color: var(--secondary); font-weight: 600;">View
+                            Case Study &rarr;</a>
+                    </div>
+                </div>
+                <!-- Case 3 -->
+                <div class="glass-card animate-up delay-200" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                    <img src="Assets/volt_case_europe.png" style="width: 100%; height: 250px; object-fit: cover;"
+                        alt="Europe HQ">
+                    <div class="news-content" style="padding: 2rem; display: flex; flex-direction: column; flex-grow: 1;">
+                        <span style="font-size: 0.8rem; color: var(--accent); font-weight: bold;">COMMERCIAL</span>
+                        <h4 style="font-size: 1.25rem; margin: 0.5rem 0;">Zenith Towers Rewire</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; flex-grow: 1;">
+                            Modernizing electrical risers and lighting for a 40-story skyscraper in downtown London.
+                        </p>
+                        <a href="#"
+                            style="display: block; margin-top: auto; color: var(--accent); font-weight: 600;">View Case
+                            Study &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed FAQ -->
+    <section class="section">
+        <div class="container" style="max-width: 800px;">
+            <h2 style="text-align: center; margin-bottom: 3rem;">Service FAQs</h2>
+
+            <details class="modern-faq animate-up">
+                <summary>What is your typical response time for non-emergencies? <span class="loading-icon">+</span>
+                </summary>
+                <p>For standard service calls, we typically schedule within 24-48 hours. However, Platinum members get
+                    same-day priority scheduling for all requests.</p>
+            </details>
+
+            <details class="modern-faq animate-up delay-100">
+                <summary>Do you provide free estimates? <span class="loading-icon">+</span></summary>
+                <p>Yes! For all new installation projects, we provide a complimentary on-site assessment and detailed
+                    quote. Diagnostic visits for repairs may incur a small trip fee which is waived if work is
+                    performed.</p>
+            </details>
+
+            <details class="modern-faq animate-up delay-200">
+                <summary>Are you licensed and insured? <span class="loading-icon">+</span></summary>
+                <p>Absolutely. VoltEdge holds Master Electrician licenses in all 15 states we operate in and carries
+                    $5M in liability insurance for commercial projects.</p>
+            </details>
+
+            <details class="modern-faq animate-up delay-300">
+                <summary>Can you help with LEED certification? <span class="loading-icon">+</span></summary>
+                <p>Yes, our engineers are LEED accredited and can design electrical systems that contribute significant
+                    points towards your building's Green certification.</p>
+            </details>
+        </div>
+    </section>
+
+    <!-- Brand Strip -->
+    <section class="section" style="padding: 2rem 0; background: var(--glass-bg);">
+        <div class="container">
+            <p style="text-align: center; font-weight: bold; margin-bottom: 2rem; color: var(--text-muted);">WE WORK
+                WITH TRUSTED BRANDS</p>
+            <div
+                style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2rem; opacity: 0.6; font-size: 1.5rem; font-weight: 800; color: var(--text-muted);">
+                <span>SCHNEIDER</span>
+                <span>SIEMENS</span>
+                <span>TESLA</span>
+                <span>PHILIPS</span>
+                <span>LUTRON</span>
+                <span>HONEYWELL</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-brand-col">
+                    <a href="index.html" class="logo">VOLTEDGE<span style="color:var(--secondary)">.</span></a>
+                    <p>Energizing the world, one circuit at a time. We are committed to providing sustainable and safe
+                        electrical solutions for everyone.</p>
+                    <div class="footer-socials">
+                        <a href="#">FB</a>
+                        <a href="#">TW</a>
+                        <a href="#">IG</a>
+                        <a href="#">LN</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="career.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Residential Wiring</a></li>
+                        <li><a href="#">Commercial Grids</a></li>
+                        <li><a href="#">Emergency Repair</a></li>
+                        <li><a href="#">Solar Installation</a></li>
+                        <li><a href="#">EV Charging</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>123 High Voltage Lane</li>
+                        <li>New York, NY 10012</li>
+                        <li>+1 (555) 123-4567</li>
+                        <li>support@voltedge.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 PathMakers. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of
+                        Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="rtltoggle.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
